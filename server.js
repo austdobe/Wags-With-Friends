@@ -1,46 +1,62 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+require('dotenv').config();
+const express = require('express');
+const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+const passport = require('passport');
+const moment = require('moment');
+const helmet = require('helmet');
+const PORT = process.env.PORT || 3333;
+const app = express();
+const db = require('./models');
 
-var db = require("./models");
-
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Middleware
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+if (app.get('env') !== 'test') {
+  app.use(morgan('dev')); // Hook up the HTTP logger
+}
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+app.use(express.static('public'));
 
-var syncOptions = { force: false };
+require('./config/passport')(db, app, passport); // pass passport for configuration
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
+// Define our routes
+app.use('/api', require('./routes/apiRoutes')(passport, db));
+app.use(require('./routes/htmlRoutes')(db));
+
+// Secure express app
+app.use(helmet.hsts({
+  maxAge: moment.duration(1, 'years').asMilliseconds()
+}));
+
+// catch 404 and forward to error handler
+if (app.get('env') !== 'development') {
+  app.use((req, res, next) => {
+    const err = new Error('Not Found: ' + req.url);
+    err.status = 404;
+    next(err);
+  });
+}
+
+const syncOptions = {
+  force: process.env.FORCE_SYNC === 'true'
+};
+
+if (app.get('env') === 'test') {
   syncOptions.force = true;
 }
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
+db.sequelize.sync(syncOptions).then(() => {
+  if (app.get('env') !== 'test' || syncOptions.force) {
+    require('./db/seed')(db);
+  }
+
+  app.listen(PORT, () => {
+    console.log(`App listening on port: ${PORT}`);
   });
 });
 

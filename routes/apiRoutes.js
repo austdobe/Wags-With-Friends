@@ -1,24 +1,22 @@
-var db = require("../models");
+const router = require('express').Router();
+const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+module.exports = (passport, db) => {
+  const AuthController = require('../controllers/authController')(passport, db);
+  const AppController = require('../controllers/appController')(db);
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+  // Authentication
+  router.post('/register', AuthController.register);
+  router.post('/login', AuthController.login);
+  router.get('/logout', AuthController.logout);
+  router.put('/user/:id', ensureAuthenticated, AuthController.updateUser);
+  router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
+  router.post('/user/confirm', AuthController.confirmAuth);
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+  // App
+  router.get('/examples', AppController.getExamples);
+  router.post('/examples', AppController.createExample);
+  router.delete('/examples/:id', AppController.deleteExample);
+
+  return router;
 };
