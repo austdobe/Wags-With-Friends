@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.com/project2.svg?branch=master)](https://travis-ci.com/project2)
+[![Build Status](https://travis-ci.com/austdobe/project2.svg?branch=master)](https://travis-ci.com/austdobe/project2)
 
 # Project 2 Starter with Auth
 
 A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
 
 ## Live link:
-https://project2-starter-auth.herokuapp.com/
+https://project2-10-2019.herokuapp.com/
 
 ## Requirements:
 
