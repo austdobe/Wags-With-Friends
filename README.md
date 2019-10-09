@@ -20,3 +20,6 @@ ADMIN_USER_PWD=admin_password
 USER_PWD=user_pwd
 FORCE_SYNC=true_or_false
 ```
+Cordinators:
+
+Ethan Donahue (EthanD0922)
