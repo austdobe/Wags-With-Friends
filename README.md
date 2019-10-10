@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/project2.svg?branch=master)](https://travis-ci.com/project2)
+[![Build Status](https://travis-ci.com/austdobe/project2.svg?branch=master)](https://travis-ci.com/austdobe/project2)
 
 # Project 2 Starter with Auth
 
