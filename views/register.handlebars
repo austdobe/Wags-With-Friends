@@ -10,7 +10,7 @@
 
       <h3 id="err-msg"></h3>
 
-      <form id= "create-form">
+      <form id="create-form">
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputFirst">First Name</label>
@@ -36,6 +36,32 @@
           <div class="form-group col-md-12">
             <label for="inputPassword">Password</label>
             <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+        {{!-- first, last, email, password, pet (dog or cat), zip code --}}
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="petName">Pet Name</label>
+            <input type="text" class="form-control" id="petName" placeholder="Pet Name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="petType">Pet Type</label>
+            <select class="custom-select" id="petType">
+              <option selected>Pet Type</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="zipCode">Zip Code</label>
+            <input type="number" min="10000" max="99999" class="form-control" id="zipCode">
           </div>
         </div>
 
