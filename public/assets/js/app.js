@@ -132,3 +132,25 @@ $('#login').on('click', function (event) {
     }
   });
 });
+
+//  Trianglify Background
+$(document).ready(function () {
+  const bg = {
+    setBg: function () {
+      const pattern = Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: 70,
+        variance: '0.95',
+        x_colors: ['#718AFF', '#A0F3FF', '#12ABF5', '#5450EB']
+      });
+      pattern.canvas(document.getElementById('canvas-basic'));
+    }
+  };
+
+  bg.setBg();
+
+  $(window).resize(function () {
+    bg.setBg();
+  });
+});
