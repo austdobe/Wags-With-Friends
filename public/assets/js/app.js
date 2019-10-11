@@ -1,11 +1,16 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
+  
 
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    password: $('#inputPassword').val().trim(),
+    // Add when we have the cols created - we'll need to add conditions in the below if statement or some sort of validation
+    // petName: $('#petName').val().trim(),
+    // petType: $('#petType').val().trim(),
+    // zipCode: $('#zipCode').val().trim()
   };
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
@@ -100,10 +105,11 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
-$('#login-modal').on('click', function (event) {
+$('#login-modal, #login-modal2').on('click', function (event) {
   event.preventDefault();
   $('#user-info').modal('show');
 });
+
 
 $('#go-home').on('click', function (event) {
   event.preventDefault();
