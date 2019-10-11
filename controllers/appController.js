@@ -2,8 +2,8 @@ module.exports = function (db) {
   return {
     // Get all examples
     getExamples: function (req, res) {
-      console.log(req.user)
-     
+      console.log(req.user);
+
       if (req.user.isAdmin) {
         db.Example.findAll({}).then(function (dbExamples) {
           res.json(dbExamples);
