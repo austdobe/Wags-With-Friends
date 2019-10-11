@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alperg/project2-starter-auth.git"
+    "url": "git+https://github.com/austdobe/project2"
   },
   "engines": {
     "npm": "5.7.1",
@@ -22,7 +22,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alperg/project2-starter-auth/issues"
+    "url": "https://github.com/austdobe/project2/issues"
   },
   "standard": {
     "globals": [
@@ -36,7 +36,7 @@
       "expect"
     ]
   },
-  "homepage": "https://github.com/alperg/project2-starter-auth#readme",
+  "homepage": "https://github.com/austdobe/project2#readme",
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-session-sequelize": "^6.0.0",

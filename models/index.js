@@ -7,15 +7,7 @@ const config = require(path.join(__dirname, '/../config/config.js'))[env];
 const db = {};
 let sequelize;
 
-config.details.operatorsAliases = {
-  $and: Sequelize.Op.and,
-  $or: Sequelize.Op.or,
-  $eq: Sequelize.Op.eq,
-  $gt: Sequelize.Op.gt,
-  $lt: Sequelize.Op.lt,
-  $lte: Sequelize.Op.lte,
-  $like: Sequelize.Op.like
-};
+// config.details.operatorAliases = false;
 
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config.details);
