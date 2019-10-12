@@ -1,0 +1,32 @@
+/*--------Desktop & Tablet--------*/
+@media only screen and (min-width: 768px) {
+    .flex {
+        flex-direction: row;
+    }
+
+    .container {
+        width: 60%;
+    }
+
+    #login-container {
+        width: auto;
+    }
+
+
+    .btn-100 {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-right: .5em;
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .container {
+        width: 50%;
+    }
+
+}

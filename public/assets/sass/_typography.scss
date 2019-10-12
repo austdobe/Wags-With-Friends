@@ -1,5 +1,9 @@
 body{
-    background: #00c6ff;  
-    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
-    background: linear-gradient(to right, #0072ff, #00c6ff); 
+    color: $color-dark;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: $color-dark;
+    font-family: 'Exo', sans-serif;
 }
