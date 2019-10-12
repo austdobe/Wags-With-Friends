@@ -1,0 +1,14 @@
+.modal-content{
+    @include radius;
+    @include shadow;
+    background: #eee;
+}
+
+.modal-body{
+    border-top: 1px solid $color-neutral-light;
+    border-bottom: 1px solid $color-neutral-light;
+}
+
+.modal-header, .modal-footer{
+    border: none;
+}

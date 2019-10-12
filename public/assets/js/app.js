@@ -1,12 +1,11 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
-  
 
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim(),
+    password: $('#inputPassword').val().trim()
     // Add when we have the cols created - we'll need to add conditions in the below if statement or some sort of validation
     // petName: $('#petName').val().trim(),
     // petType: $('#petType').val().trim(),
@@ -110,7 +109,6 @@ $('#login-modal, #login-modal2').on('click', function (event) {
   $('#user-info').modal('show');
 });
 
-
 $('#go-home').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/';
@@ -132,5 +130,27 @@ $('#login').on('click', function (event) {
       $('#login-err-msg').empty('').text(result.error);
       $('#user-info').modal('hide');
     }
+  });
+});
+
+//  Trianglify Background
+$(document).ready(function () {
+  const bg = {
+    setBg: function () {
+      const pattern = Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: 70,
+        variance: '0.95',
+        x_colors: ['#718AFF', '#A0F3FF', '#12ABF5', '#5450EB']
+      });
+      pattern.canvas(document.getElementById('canvas-basic'));
+    }
+  };
+
+  bg.setBg();
+
+  $(window).resize(function () {
+    bg.setBg();
   });
 });

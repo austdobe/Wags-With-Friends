@@ -1,0 +1,16 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+
+    &-center{
+        @extend .flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: $color-neutral-light !important;
+}

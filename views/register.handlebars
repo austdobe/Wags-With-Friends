@@ -1,76 +1,82 @@
 {{> nav/nav-block user=false register=true}}
-
+<section id="bg">
+  <canvas id="canvas-basic"></canvas>
+</section>
 <div class="container">
   <div class="row">
-    <div class="col col-md-12">
-      <header class="create-user-wrap header-wrap" align="center">
-        <h1>Create Your Account</h1>
+    <div class="col col-md-12 theme-cont">
+      <div class="theme-header">
+        <h2 class="theme-header-title">Create Your Account</h2>
         <h3 id="create-err-msg"></h3>
-      </header>
+      </div>
+      <div class="theme-box">
+        <h3 id="err-msg"></h3>
 
-      <h3 id="err-msg"></h3>
-
-      <form id="create-form">
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputFirst">First Name</label>
-            <input type="text" class="form-control" id="inputFirst" placeholder="John">
+        <form id="create-form">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputFirst">First Name</label>
+              <input type="text" class="form-control" id="inputFirst" placeholder="John">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputLast">Last Name</label>
-            <input type="text" class="form-control" id="inputLast" placeholder="Doe">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputLast">Last Name</label>
+              <input type="text" class="form-control" id="inputLast" placeholder="Doe">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
           </div>
-        </div>
-        {{!-- first, last, email, password, pet (dog or cat), zip code --}}
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="petName">Pet Name</label>
-            <input type="text" class="form-control" id="petName" placeholder="Pet Name">
+          <hr>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="petName">Pet Name</label>
+              <input type="text" class="form-control" id="petName" placeholder="Pet Name">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="petType">Pet Type</label>
-            <select class="custom-select" id="petType">
-              <option selected>Pet Type</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="petType">Pet Type</label>
+              <select class="custom-select" id="petType">
+                <option selected>Pet Type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="zipCode">Zip Code</label>
-            <input type="number" min="10000" max="99999" class="form-control" id="zipCode">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="zipCode">Zip Code</label>
+              <input type="number" min="10000" max="99999" class="form-control" id="zipCode">
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h2 id="message"></h2>
-        </div>
+          <div>
+            <h2 id="message"></h2>
+          </div>
 
-        <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
-      </form>
+          <button type="submit" id="add-user" class="btn btn-primary btn-100">Submit</button>
+        </form>
+      </div>
+
+
     </div>
   </div>
 </div>
