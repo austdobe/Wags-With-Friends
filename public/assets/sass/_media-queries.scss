@@ -15,11 +15,7 @@
 
     .btn-100 {
         width: 100%;
-
-        &:not(:last-child) {
-            margin-right: .5em;
-            margin-bottom: 0;
-        }
+        margin-right: .5em;
     }
 
 }

@@ -2,14 +2,31 @@
 
 <div class="container theme-body">
   
-  <header align="center" class="header-wrap">
-    <h1>View or update your user</h1>
+  <header class="header-wrap">
+    <h1 class="text-center"><span class="fas fa-user-circle"></span></h1>
     <div class="userId">
-      <h3>Welcome, {{userInfo.firstName}}</h3>
-      <h5 id="user-number" data-useremail="{{userInfo.email}}">Account email: {{userInfo.email}}</h5>
+      <h3 class="theme-title-div">{{userInfo.firstName}} {{userInfo.lastName}}</h3>
+      {{!-- <h5 id="user-number" data-useremail="{{userInfo.email}}">Account email: {{userInfo.email}}</h5> --}}
     </div>
     <h3 id="update-err-msg"></h3>
   </header>
+
+  <div id="user-profle" class="row">
+    <div class="col col-md-12">
+      <ul class="list-group mt-4">
+        <li class="list-group-item"><strong>Email:</strong> {{userInfo.email}}</li>
+      </ul>
+
+      <h5 class="theme-title-div">Pet Information</h5>
+      <ul class="list-group mt-4">
+        <li class="list-group-item"><strong>Pet Name:</strong> //Pet Name Here</li>
+        <li class="list-group-item"><strong>Pet Type:</strong> //Pet Type Here</li>
+        <li class="list-group-item"><strong>Pet Age:</strong> //Pet Age Here</li>
+      </ul>
+      <button id="user-edit" class="btn btn-secondary btn-100 mt-4">Edit Profile</button>
+
+    </div>
+  </div>
 
   <form id="user-form">
     <div class="form-row">
@@ -37,9 +54,10 @@
     <div>
       <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary">Update</button>
       {{#unless userInfo.isAdmin}}
-        <button type="submit" id="delete-user" class="btn btn-primary">Delete</button>
+        <button type="submit" id="delete-user" class="btn btn-danger">Delete</button>
       {{/unless}}
       <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary">Refresh</button>
+      <button id="cancel-edit" class="btn btn-secondary">Cancel</button>
     </div>
   </form>
 

@@ -199,8 +199,6 @@ nav.theme-navbar {
 
 .btn-100 {
   width: 100%;
-}
-.btn-100:not(:last-child) {
   margin-bottom: 0.5em;
 }
 
@@ -235,10 +233,7 @@ nav.theme-navbar {
 
   .btn-100 {
     width: 100%;
-  }
-  .btn-100:not(:last-child) {
     margin-right: 0.5em;
-    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 992px) {

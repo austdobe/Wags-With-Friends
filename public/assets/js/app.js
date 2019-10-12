@@ -156,4 +156,16 @@ $(document).ready(function () {
   $(window).resize(function () {
     bg.setBg();
   });
+
+  $('#user-form').hide();
+
+  $('#user-edit').on('click', function () {
+    event.preventDefault();
+    $(this).parent().parent().hide();
+    $('#user-form').show().fadeIn(500);
+  });
+  $('#cancel-edit').on('click', function () {
+    $('#user-form').hide();
+    $('#user-profile').show().fadeIn(500);
+  });
 });
