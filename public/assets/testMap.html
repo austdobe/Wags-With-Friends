@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $("document").ready(function(){
+    
+        L.mapquest.key ='wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS';
+
+            L.mapquest.geocoding().geocode(['27511', '27513', '27519', '27560', '27607'], createMap);
+
+            function createMap(err, res) {
+          // Initialize the Map
+                var map = L.mapquest.map('map', {
+                layers: L.mapquest.tileLayer('map'),
+                center: [0, 0],
+                zoom: 12
+                }); 
+            var featureGroup = generateMarkersFeatureGroup(res);
+          // Add markers to the map and zoom to the features
+            featureGroup.addTo(map);
+            map.fitBounds(featureGroup.getBounds());
+            }
+
+            function generateMarkersFeatureGroup(res) {
+                var group = [];
+                for (var i = 0; i < res.results.length; i++) {
+                    var location = res.results[i].locations[0];
+                    var locationLatLng = location.latLng;
+                    var marker = L.marker(locationLatLng, {icon: L.mapquest.icons.marker()})
+                    .bindPopup(location.adminArea5 + ', ' + location.adminArea3);
+                    group.push(marker);
+                }
+                return L.featureGroup(group);
+            }
+    });
+// })
+
+    
+    </script>
+
+</head>
+<body style="border: 0; margin: 0;">
+    <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+
+
+
+
+</body>
+</html>
