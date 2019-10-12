@@ -7,3 +7,30 @@ h1, h2, h3, h4, h5, h6{
     color: $color-dark;
     font-family: 'Exo', sans-serif;
 }
+
+.theme-title-div {
+    margin-top: 1em;
+    overflow: hidden;
+    text-align: center;
+
+    &::before,
+    &::after {
+        background-color: $color-secondary;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+
+    &::before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+
+    &::after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+}
