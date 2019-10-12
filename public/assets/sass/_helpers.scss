@@ -11,6 +11,10 @@
 
 hr {
     border: none;
-    height: 2px;
-    background-color: $color-neutral-light !important;
+    height: 1px;
+    background-color: $color-secondary !important;
+}
+
+.hidden{
+    display: none;
 }

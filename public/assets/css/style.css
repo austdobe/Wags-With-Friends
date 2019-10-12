@@ -139,8 +139,12 @@ body {
 
 hr {
   border: none;
-  height: 2px;
-  background-color: #bfdafc !important;
+  height: 1px;
+  background-color: #56CCF2 !important;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -199,8 +203,6 @@ nav.theme-navbar {
 
 .btn-100 {
   width: 100%;
-}
-.btn-100:not(:last-child) {
   margin-bottom: 0.5em;
 }
 
@@ -217,6 +219,10 @@ nav.theme-navbar {
 
 .modal-header, .modal-footer {
   border: none;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 /*--------Desktop & Tablet--------*/
@@ -238,7 +244,6 @@ nav.theme-navbar {
   }
   .btn-100:not(:last-child) {
     margin-right: 0.5em;
-    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 992px) {
