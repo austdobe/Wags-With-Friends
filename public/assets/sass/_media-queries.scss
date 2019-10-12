@@ -12,12 +12,13 @@
         width: auto;
     }
 
-
     .btn-100 {
         width: 100%;
-        margin-right: .5em;
-    }
 
+        &:not(:last-child){
+            margin-right: .5em;
+        }
+    }
 }
 
 @media only screen and (min-width: 992px) {

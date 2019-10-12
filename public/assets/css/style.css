@@ -139,8 +139,12 @@ body {
 
 hr {
   border: none;
-  height: 2px;
-  background-color: #bfdafc !important;
+  height: 1px;
+  background-color: #56CCF2 !important;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -217,6 +221,10 @@ nav.theme-navbar {
   border: none;
 }
 
+.form-control {
+  border-radius: 0;
+}
+
 /*--------Desktop & Tablet--------*/
 @media only screen and (min-width: 768px) {
   .flex, .flex-center {
@@ -233,6 +241,8 @@ nav.theme-navbar {
 
   .btn-100 {
     width: 100%;
+  }
+  .btn-100:not(:last-child) {
     margin-right: 0.5em;
   }
 }

@@ -157,15 +157,13 @@ $(document).ready(function () {
     bg.setBg();
   });
 
-  $('#user-form').hide();
-
   $('#user-edit').on('click', function () {
     event.preventDefault();
+    $('#user-form-cont').attr('class', '');
     $(this).parent().parent().hide();
-    $('#user-form').show().fadeIn(500);
   });
   $('#cancel-edit').on('click', function () {
-    $('#user-form').hide();
-    $('#user-profile').show().fadeIn(500);
+    $('#user-form-cont').addClass('hidden');
+    $('#user-profile').show();
   });
 });

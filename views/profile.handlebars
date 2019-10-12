@@ -1,7 +1,7 @@
 {{> nav/nav-block user=true register=false}}
 
 <div class="container theme-body">
-  
+
   <header class="header-wrap">
     <h1 class="text-center"><span class="fas fa-user-circle"></span></h1>
     <div class="userId">
@@ -16,7 +16,6 @@
       <ul class="list-group mt-4">
         <li class="list-group-item"><strong>Email:</strong> {{userInfo.email}}</li>
       </ul>
-
       <h5 class="theme-title-div">Pet Information</h5>
       <ul class="list-group mt-4">
         <li class="list-group-item"><strong>Pet Name:</strong> //Pet Name Here</li>
@@ -24,43 +23,45 @@
         <li class="list-group-item"><strong>Pet Age:</strong> //Pet Age Here</li>
       </ul>
       <button id="user-edit" class="btn btn-secondary btn-100 mt-4">Edit Profile</button>
-
     </div>
   </div>
 
-  <form id="user-form">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputFirst">First Name</label>
-        <input type="text" class="form-control" id="inputFirst" value="{{userInfo.firstName}}" placeholder="John">
+  <div id="user-form-cont" class="hidden">
+    <form id="user-form">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputFirst">First Name</label>
+          <input type="text" class="form-control" id="inputFirst" value="{{userInfo.firstName}}" placeholder="John">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="inputLast">Last Name</label>
+          <input type="text" class="form-control" id="inputLast" value="{{userInfo.lastName}}" placeholder="Doe">
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputLast">Last Name</label>
-        <input type="text" class="form-control" id="inputLast" value="{{userInfo.lastName}}" placeholder="Doe">
-      </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputPassword">Email</label>
-        <input type="text" class="form-control" id="inputEmail" value="{{userInfo.email}}">
+      <div class="form-row my-2">
+        <div class="form-group col-md-12">
+          <label for="inputPassword">Email</label>
+          <input type="text" class="form-control" id="inputEmail" value="{{userInfo.email}}">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" value="{{userInfo.password}}">
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" value="{{userInfo.password}}">
+
+      <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary btn-100">Update</button>
+      <hr>
+      <div class="flex mt-4">
+        {{#unless userInfo.isAdmin}}
+        <button type="submit" id="delete-user" class="btn btn-danger btn-100">Delete</button>
+        {{/unless}}
+        <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary btn-100">Refresh</button>
+        <button id="cancel-edit" class="btn btn-secondary btn-100">Cancel</button>
       </div>
-    </div>
-
-    <div>
-      <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary">Update</button>
-      {{#unless userInfo.isAdmin}}
-        <button type="submit" id="delete-user" class="btn btn-danger">Delete</button>
-      {{/unless}}
-      <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary">Refresh</button>
-      <button id="cancel-edit" class="btn btn-secondary">Cancel</button>
-    </div>
-  </form>
-
+    </form>
+  </div>
+  
   <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -86,7 +87,8 @@
         </div>
 
         <div class="modal-footer">
-          <button id="confirm-delete" type="button" data-id="{{userInfo.id}}" class="btn btn-primary">Confirm Delete</button>
+          <button id="confirm-delete" type="button" data-id="{{userInfo.id}}" class="btn btn-primary">Confirm
+            Delete</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Nah I'll stay</button>
         </div>
       </div>
