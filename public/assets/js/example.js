@@ -1,6 +1,5 @@
 // Get references to page elements
-const $exampleText = $('#example-text');
-const $exampleDescription = $('#example-description');
+const $searchCriteria = $('#example-text');
 const $submitBtn = $('#submit');
 const $exampleList = $('#example-list');
 
@@ -33,15 +32,15 @@ const API = {
 // refreshExamples gets new examples from the db and repopulates the list
 const refreshExamples = function () {
   API.getExamples().then(function (data) {
-    const $examples = data.map(function (example) {
+    const $examples = data.map(function (search) {
       const $a = $('<a>')
-        .text(example.text)
-        .attr('href', '/example/' + example.id);
+        .text(search.criteria)
+        .attr('href', '/example/' + search.id);
 
       const $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': example.id
+          'data-id': search.id
         })
         .append($a);
 
@@ -64,22 +63,20 @@ const refreshExamples = function () {
 const handleFormSubmit = function (event) {
   event.preventDefault();
 
-  const example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  const search = {
+    criteria: $searchCriteria.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(search.criteria)) {
     alert('You must enter an example text and description!');
     return;
   }
 
-  API.saveExample(example).then(function () {
+  API.saveExample(search).then(function () {
     refreshExamples();
   });
 
-  $exampleText.val('');
-  $exampleDescription.val('');
+  $searchCriteria.val('');
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

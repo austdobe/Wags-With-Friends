@@ -59,7 +59,12 @@ module.exports = (db) => {
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({}).then(function (dbExamples) {
+      db.Example.findAll({ where:
+        { zipcode: {
+          user: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        }
+        } }).then(function (dbExamples) {
         res.render('example', {
           msg: 'Welcome!',
           examples: dbExamples

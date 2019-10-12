@@ -1,32 +1,28 @@
 module.exports = function (db) {
   return {
-    // Get all examples
+    // Get all examples INCLUDES HOW TO CHANGE FOR ADMIN
     getExamples: function (req, res) {
-      console.log(req.user);
+      console.log(req.session.passport.user.isAdmin);
 
-      if (req.user.isAdmin) {
-        db.Example.findAll({}).then(function (dbExamples) {
+      if (req.session.passport.user.isAdmin) {
+        db.User.findAll({}).then(function (dbExamples) {
           res.json(dbExamples);
         });
       } else {
-        db.Example.findAll({
-          where: {
-            UserId: req.user
-          }
-        }).then(function (dbExamples) {
+        db.User.findAll({ where: { zipcode: req.session.passport.user.zipcode } }).then(function (dbExamples) {
           res.json(dbExamples);
         });
       }
     },
     // Create a new example
     createExample: function (req, res) {
-      db.Example.create(req.body).then(function (dbExample) {
+      db.Search.create(req.body).then(function (dbExample) {
         res.json(dbExample);
       });
     },
     // Delete an example by id
     deleteExample: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+      db.Search.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
         res.json(dbExample);
       });
     }
