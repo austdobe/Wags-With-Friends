@@ -45,6 +45,8 @@ body{
     padding: 0;
     overflow: hidden;
     @include top-bottom;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .theme-body{
@@ -65,5 +67,31 @@ body{
 .theme-box{
     @include light-gradient;
     padding: 2em;
+}
+
+.theme-title-div {
+    overflow: hidden;
+    text-align: center;
+
+    &::before,
+    &::after {
+        background-color: $color-secondary;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+
+    &::before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+
+    &::after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
 }
 
