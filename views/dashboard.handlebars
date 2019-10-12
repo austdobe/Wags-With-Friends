@@ -1,23 +1,45 @@
-{{> nav/nav-block}}
+{{#if isloggedin}}
+  {{> nav/nav-block}}
+{{/if}}
 
-<div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Pinder</p>
-    <hr class="my-4">
-    <div>
-      {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
-      {{else}}
-        <p>You need to log in to use this app.</p>
+<section id="bg">
+  <canvas id="canvas-basic"></canvas>
+</section>
 
-        {{!-- <a class="nav-link" href="#" id="login-modal2">Login</a>
-        <a class="nav-link" href="/register" data-register={{register}}>Register</a> --}}
-
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
+{{#if isloggedin}}
+<div class="container">
+  <div class="row">
+    <div class="col col-md-12 theme-cont">
+      <div class="theme-box">
+        <h1 class="text-center">Welcome Back {{user.firstName}}!</h1>
+          <hr>
+        <a href="/logout"> <button type="btn" class="btn btn-primary btn-100">Logout</button></a>
+      </div>
     </div>
   </div>
 </div>
+
+{{else}}
+
+<div id="main-container" class="container flex-center">
+  <div id="login-container" class="text-center" align="center">
+    <div class="theme-basic-box">
+      <div>
+        <h1>Pinder</h1>
+        <hr>
+        <p>Login or create an account to use this app.</p>
+        <div class="flex">
+          <a class="btn btn-primary btn-100" href="#" id="login-modal2">Login</a>
+          <a class="btn btn-outline-primary btn-100" href="/register" data-register={{register}}>Register</a>
+        </div>
+        <h5 id="login-err-msg"></h5>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/if}}
+
+
 
 {{> modal/login-block}}

@@ -1,0 +1,12 @@
+.btn{
+    padding: .5em;
+}
+
+.btn-100{
+    width: 100%;
+
+    &:not(:last-child){
+        margin-bottom: .5em;
+    }
+
+}
