@@ -1,6 +1,6 @@
 create database project2_dev;
 USE project2_dev;
-CREATE TABLE pets
+CREATE TABLE Users
 (
     id int NOT NULL AUTO_INCREMENT,
 	firstName varchar(127) NOT NULL,
