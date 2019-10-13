@@ -157,4 +157,14 @@ $(document).ready(function () {
   $(window).resize(function () {
     bg.setBg();
   });
+
+  $('#user-edit').on('click', function () {
+    event.preventDefault();
+    $('#user-form-cont').attr('class', '');
+    $(this).parent().parent().hide();
+  });
+  $('#cancel-edit').on('click', function () {
+    $('#user-form-cont').addClass('hidden');
+    $('#user-profile').show();
+  });
 });

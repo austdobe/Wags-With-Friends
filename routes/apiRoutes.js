@@ -15,6 +15,11 @@ module.exports = (passport, db) => {
 
   // App
   router.get('/examples', AppController.getExamples);
+  // *TODO:
+  // Paola
+  router.get('/zipCode', AppController.getZipCode);
+  // Paola
+  // *TODO:
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
