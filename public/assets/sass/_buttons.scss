@@ -4,9 +4,5 @@
 
 .btn-100{
     width: 100%;
-
-    &:not(:last-child){
-        margin-bottom: .5em;
-    }
-
+    margin-bottom: .5em;
 }

@@ -18,6 +18,27 @@ module.exports = function (db) {
         });
       }
     },
+    // *TODO:
+    // Paola
+    getZipCode: function (req, res) {
+      console.log(req.user);
+
+      if (req.pets.zipcode) {
+        db.pets.findAll({}).then(function (dbPets) {
+          res.json(dbPets);
+        });
+      } else {
+        db.pets.findAll({
+          where: {
+            zipcode: '%27560%'
+          }
+        }).then(function (dbPets) {
+          res.json(dbPets);
+        });
+      }
+    },
+    // Paola
+    // *TODO:
     // Create a new example
     createExample: function (req, res) {
       db.Example.create(req.body).then(function (dbExample) {

@@ -22,12 +22,6 @@
   text-transform: capitalize;
 }
 
-hr {
-  border: none;
-  height: 2px;
-  background-color: #bfdafc !important;
-}
-
 .list-group-item {
   line-height: 2.5;
 }
@@ -84,6 +78,8 @@ body {
   overflow: hidden;
   margin-top: 6em;
   margin-bottom: 4em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .theme-body {
@@ -110,6 +106,28 @@ body {
   padding: 2em;
 }
 
+.theme-title-div {
+  overflow: hidden;
+  text-align: center;
+}
+.theme-title-div::before, .theme-title-div::after {
+  background-color: #56CCF2;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+.theme-title-div::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+.theme-title-div::after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
 .flex, .flex-center {
   display: flex;
   flex-direction: column;
@@ -121,8 +139,12 @@ body {
 
 hr {
   border: none;
-  height: 2px;
-  background-color: #bfdafc !important;
+  height: 1px;
+  background-color: #56CCF2 !important;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -133,6 +155,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #222;
   font-family: "Exo", sans-serif;
+}
+
+.theme-title-div {
+  margin-top: 1em;
+  overflow: hidden;
+  text-align: center;
+}
+.theme-title-div::before, .theme-title-div::after {
+  background-color: #56CCF2;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+.theme-title-div::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+.theme-title-div::after {
+  left: 0.5em;
+  margin-right: -50%;
 }
 
 nav.theme-navbar {
@@ -158,8 +203,6 @@ nav.theme-navbar {
 
 .btn-100 {
   width: 100%;
-}
-.btn-100:not(:last-child) {
   margin-bottom: 0.5em;
 }
 
@@ -176,6 +219,10 @@ nav.theme-navbar {
 
 .modal-header, .modal-footer {
   border: none;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 /*--------Desktop & Tablet--------*/
@@ -197,7 +244,6 @@ nav.theme-navbar {
   }
   .btn-100:not(:last-child) {
     margin-right: 0.5em;
-    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 992px) {
