@@ -10,13 +10,13 @@ const displayMap = function () {
         center: [0, 0],
         zoom: 12
         }); 
-        const featureGroup = generateMarkersFeatureGroup(res);
+        const markerGroup = generateMarkers(res);
         // Add markers to the map and zoom to the features
-        featureGroup.addTo(map);
-        map.fitBounds(featureGroup.getBounds());
+        markerGroup.addTo(map);
+        map.fitBounds(markerGroup.getBounds());
     }
 
-    function generateMarkersFeatureGroup (res) {
+    function generateMarkers (res) {
         const group = [];
         for (let i = 0; i < res.results.length; i++) {
         const location = res.results[i].locations[0];
@@ -25,7 +25,7 @@ const displayMap = function () {
             .bindPopup(location.adminArea5 + ', ' + location.adminArea3);
         group.push(marker);
         }
-        return L.featureGroup(group);
+        return L.markerGroup(group);
     }
 };
 
