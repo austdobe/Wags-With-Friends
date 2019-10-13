@@ -3,7 +3,10 @@ const $exampleText = $('#example-text');
 const $exampleDescription = $('#example-description');
 const $submitBtn = $('#submit');
 const $exampleList = $('#example-list');
-
+// *TODO:
+// Paola
+const $zipCodeList = $('#example-list');
+// *TODO:
 // The API object contains methods for each kind of request we'll make
 const API = {
   saveExample: function (example) {
@@ -22,6 +25,16 @@ const API = {
       type: 'GET'
     });
   },
+  // *TODO:
+  // Paola
+  getZipCode: function () {
+    return $.ajax({
+      url: 'api/zipCode',
+      type: 'GET'
+    });
+  },
+  // Paola
+  // *TODO:
   deleteExample: function (id) {
     return $.ajax({
       url: 'api/examples/' + id,
@@ -57,6 +70,35 @@ const refreshExamples = function () {
     $exampleList.empty();
     $exampleList.append($examples);
   });
+  // *TODO:
+  // Paola
+  API.getZipCode().then(function (data) {
+    const $zipCodes = data.map(function (zipCode) {
+      const $a = $('<a>')
+        .text(zipCode.text)
+        .attr('href', '/zipCode/' + zipCode.id);
+
+      const $li = $('<li>')
+        .attr({
+          class: 'list-group-item',
+          'data-id': zipCode.id
+        })
+        .append($a);
+
+      const $button = $('<button>')
+        .addClass('btn btn-danger float-right')
+        .text('Message');
+
+      $li.append($button);
+
+      return $li;
+    });
+
+    $zipCodeList.empty();
+    $zipCodeList.append($zipCodes);
+  });
+  // Paola
+  // *TODO:
 };
 
 // handleFormSubmit is called whenever we submit a new example
