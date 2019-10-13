@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-      }
+      },
       pet: {
         type: DataTypes.STRING
       },
