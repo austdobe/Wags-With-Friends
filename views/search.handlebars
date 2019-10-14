@@ -4,9 +4,9 @@
             <div class="col-8 offset-2">
             <h3>Examples:</h3>
                 <ul id="example-list" class="list-group">
-            {{#each examples}}
+            {{#each results}}
                 <li data-id="{{this.id}}" class="list-group-item">
-                <a href="example/{{this.id}}">{{this.text}}</a>
+                <a href="example/{{this.id}}">{{this.firstName}}</a>
                 <button class="btn btn-danger float-right message">Message</button>
             </li>
             {{/each}}
