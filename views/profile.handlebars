@@ -6,7 +6,6 @@
     <h1 class="text-center"><span class="fas fa-user-circle"></span></h1>
     <div class="userId">
       <h3 class="theme-title-div">{{userInfo.firstName}} {{userInfo.lastName}}</h3>
-      {{!-- <h5 id="user-number" data-useremail="{{userInfo.email}}">Account email: {{userInfo.email}}</h5> --}}
     </div>
     <h3 id="update-err-msg"></h3>
   </header>
@@ -15,8 +14,14 @@
     <div class="col col-md-12">
       <ul class="list-group mt-4">
         <li class="list-group-item"><strong>Email:</strong> {{userInfo.email}}</li>
+        <li class="list-group-item"><strong>Street:</strong> //Street Address</li>
+        <li class="list-group-item flex">
+          <div class="flex-list-group-item"><strong>City:</strong> //City</div>
+          <div class="flex-list-group-item"><strong>State:</strong> //State</div>
+          <div class="flex-list-group-item"><strong>Zip:</strong> //Zip</div>
+        </li>
       </ul>
-      <h5 class="theme-title-div">Pet Information</h5>
+      <h5 class="theme-title-div m-4">Pet Information</h5>
       <ul class="list-group mt-4">
         <li class="list-group-item"><strong>Pet Name:</strong> //Pet Name Here</li>
         <li class="list-group-item"><strong>Pet Type:</strong> //Pet Type Here</li>
@@ -61,7 +66,7 @@
       </div>
     </form>
   </div>
-  
+
   <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

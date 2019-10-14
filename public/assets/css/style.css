@@ -137,6 +137,14 @@ body {
   align-items: center;
 }
 
+.flex-list-group-item {
+  flex: 1;
+}
+.flex-list-group-item:not(:first-child) {
+  border-left: 1px solid #ddd;
+  padding-left: 1em;
+}
+
 hr {
   border: none;
   height: 1px;
