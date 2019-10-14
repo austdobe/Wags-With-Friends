@@ -2,18 +2,6 @@ module.exports = db => {
   db.User.create({
     firstName: 'Joe',
     lastName: 'Gates',
-<<<<<<< HEAD
-    email: 'j@g.co',
-    password: process.env.ADMIN_USER_PWD,
-    isAdmin: true
-  });
-  db.User.create({
-    firstName: 'Jane',
-    lastName: 'Jobs',
-    email: 'j@j.co',
-    password: process.env.USER_PWD,
-    isAdmin: false
-=======
     email: 'jgates@gmail.com',
     password: 'green99',
     isAdmin: true,
@@ -304,6 +292,5 @@ module.exports = db => {
     zipcode: 27703,
     city: 'Durham',
     state: 'NC'
->>>>>>> 4857c002d7b816b380f7764f73af74adab62e65f
   });
 };
