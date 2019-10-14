@@ -9,9 +9,9 @@ $('#add-user').on('click', function (event) {
     street: $('#street').val().trim(),
     city: $('#city').val().trim(),
     state: $('#state').val().trim(),
-    zipCode: $('#zipCode').val().trim(),
+    zipcode: $('#zipCode').val().trim(),
     petName: $('#petName').val().trim(),
-    petType: $('#petType').val().trim(),
+    pet: $('#petType').val().trim(),
     petAge: $('#petAge').val().trim()
   };
 
