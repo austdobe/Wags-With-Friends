@@ -10,7 +10,14 @@ module.exports = (passport, db) => {
           email: req.body.email,
           password: req.body.password,
           firstName: req.body.firstName,
-          lastName: req.body.lastName
+          lastName: req.body.lastName,
+          address: req.body.street,
+          city: req.body.city,
+          state: req.body.state,
+          zipcode: req.body.zipcode,
+          petName: req.body.petName,
+          pet: req.body.pet,
+          petAge: req.body.petAge
         };
 
         return db.User.create(newUser).then(() => {

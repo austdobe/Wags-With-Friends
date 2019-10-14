@@ -5,14 +5,14 @@ $('#add-user').on('click', function (event) {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
-    // street: $('#street').val().trim(),
-    // city: $('#city').val().trim(),
-    // state: $('#state').val().trim(),
-    // zipCode: $('#zipCode').val().trim(),
-    // petName: $('#petName').val().trim(),
-    // petType: $('#petType').val().trim(),
-    // petAge: $('#petAge').val().trim()
+    password: $('#inputPassword').val().trim(),
+    street: $('#street').val().trim(),
+    city: $('#city').val().trim(),
+    state: $('#state').val().trim(),
+    zipcode: $('#zipCode').val().trim(),
+    petName: $('#petName').val().trim(),
+    pet: $('#petType').val().trim(),
+    petAge: $('#petAge').val().trim()
   };
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
