@@ -59,7 +59,12 @@ module.exports = (db) => {
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({}).then(function (dbExamples) {
+      db.Example.findAll({ where:
+        { zipcode: {
+          user: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        }
+        } }).then(function (dbExamples) {
         res.render('example', {
           msg: 'Welcome!',
           examples: dbExamples
@@ -70,6 +75,22 @@ module.exports = (db) => {
     }
   });
 
+  // ---------------------------------
+
+  router.get('/search', function (req, res) {
+    console.log('ZIPCODE: ' + db.Search);
+    if (req.isAuthenticated()) {
+      db.User.findAll({ where: {
+        zipcode: req.session.passport.user.zipcode
+      } }).then(function (results) {
+        res.render('search', {
+          results: results
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
   // Load example page and pass in an example by id
   router.get('/example/:id', function (req, res) {
     if (req.isAuthenticated()) {

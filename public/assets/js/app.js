@@ -140,6 +140,7 @@ $('#login').on('click', function (event) {
 $(document).ready(function () {
   const bg = {
     setBg: function () {
+      // eslint-disable-next-line no-undef
       const pattern = Trianglify({
         width: window.innerWidth,
         height: window.innerHeight,
