@@ -32,7 +32,9 @@
   </div>
 
   <div id="user-form-cont" class="hidden">
-    <form id="user-form">
+    {{> forms/account-form-block id="user-form" isUpdate=true}}
+
+    {{!-- <form id="user-form">
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="inputFirst">First Name</label>
@@ -64,7 +66,7 @@
         <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary btn-100">Refresh</button>
         <button id="cancel-edit" class="btn btn-secondary btn-100">Cancel</button>
       </div>
-    </form>
+    </form> --}}
   </div>
 
   <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">

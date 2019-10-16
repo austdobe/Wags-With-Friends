@@ -1,35 +1,3 @@
-$('#update-user').on('click', function (event) {
-  event.preventDefault();
-
-  const id = $(this).data('id');
-
-  // capture All changes
-  const changeUser = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
-  };
-  $('#err-msg').empty('');
-  // $('#change-user-modal').modal('show');
-  console.log(changeUser);
-
-  if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
-    $.ajax({
-      type: 'PUT',
-      url: `/api/user/${id}`,
-      data: changeUser
-    }).then((result) => {
-      console.log('Updated user:', result);
-      // Reload the page to get the updated list
-      window.location.href = '/logout';
-    });
-  } else {
-    console.log('**Please fill out entire form**');
-    $('#update-err-msg').empty('').text('**Please fill out entire form**');
-  }
-});
-
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
   event.preventDefault();
@@ -204,6 +172,7 @@ $(document).ready(function () {
         pet: $('#petType').val().trim(),
         petAge: $('#petAge').val().trim()
       };
+
       $.ajax({
         type: 'POST',
         url: '/api/register',
@@ -214,6 +183,39 @@ $(document).ready(function () {
     } else {
       console.log('**Please fill out entire form**');
       $('#create-err-msg').empty('').text('**Please fill out entire form**');
+    }
+  });
+
+  $('#update-user').on('click', function (event) {
+    event.preventDefault();
+
+    const id = $(this).data('id');
+
+    // capture All changes
+    const changeUser = {
+      firstName: $('#inputFirst').val().trim(),
+      lastName: $('#inputLast').val().trim(),
+      email: $('#inputEmail').val().trim(),
+      password: $('#inputPassword').val().trim()
+    };
+    
+    $('#err-msg').empty('');
+    // $('#change-user-modal').modal('show');
+    console.log(changeUser);
+
+    if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
+      $.ajax({
+        type: 'PUT',
+        url: `/api/user/${id}`,
+        data: changeUser
+      }).then((result) => {
+        console.log('Updated user:', result);
+        // Reload the page to get the updated list
+        window.location.href = '/logout';
+      });
+    } else {
+      console.log('**Please fill out entire form**');
+      $('#update-err-msg').empty('').text('**Please fill out entire form**');
     }
   });
 });
