@@ -1,13 +1,14 @@
+// import { get } from "http";
 
 // import { userInfo } from "os";
-
+var maps = function(userZip, friendZip){
 $('.map').on('click', function (event) {
     event.preventDefault();
     $('#map-view').modal('toggle');
     L.mapquest.key = "wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS";
     var userZipCode = $('.map').attr(userInfo.zipcode);
-    console.log(userZipCode)
-    L.mapquest.geocoding().geocode(['27511', '27513', '27519', '27560', '27607'], createMap);
+    console.log(userZipCode);
+    L.mapquest.geocoding().geocode([userZip, friendZip], createMap);
 
     // Creating map
     function createMap (err, res) {
@@ -36,3 +37,4 @@ $('.map').on('click', function (event) {
 
 
 });
+};
