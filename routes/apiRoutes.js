@@ -17,7 +17,7 @@ module.exports = (passport, db) => {
   router.get('/examples', AppController.getExamples);
   // *TODO:
   // Paola
-  router.get('/zipCode', AppController.getZipCode);
+  router.get('/search', AppController.getZipCode);
   // Paola
   // *TODO:
   router.post('/examples', AppController.createExample);

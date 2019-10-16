@@ -2,12 +2,14 @@
     <div class="container theme-body">
         <div class="row">
             <div class="col-8 offset-2">
-            <h3>Examples:</h3>
+            <h3>Wags Near You:</h3>
                 <ul id="example-list" class="list-group">
             {{#each results}}
                 <li data-id="{{this.id}}" class="list-group-item">
                 <a href="example/{{this.id}}">{{this.firstName}}</a>
-                <button class="btn btn-danger float-right message">Message</button>
+                <p>Pet: {{this.petName}}</p>
+                <p>Age: {{this.petAge}}</p>
+                <button class="btn btn-danger float-right message " data-id={{this.id}}>Message</button>
             </li>
             {{/each}}
             </ul>

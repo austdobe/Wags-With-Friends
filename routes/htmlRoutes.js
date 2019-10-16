@@ -78,7 +78,6 @@ module.exports = (db) => {
   // ---------------------------------
 
   router.get('/search', function (req, res) {
-    console.log('ZIPCODE: ' + db.Search);
     if (req.isAuthenticated()) {
       db.User.findAll({ where: {
         zipcode: req.session.passport.user.zipcode
