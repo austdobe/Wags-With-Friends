@@ -106,9 +106,9 @@ $(document).ready(function () {
     $('#user-profile').show();
   });
 
-  jQuery.validator.addMethod('abc', function (value, element) {
-    return this.optional(element) || /^[a-z][a-z\s]*$/gi.test(value);
-  }, 'Please only use letters and spaces');
+  // jQuery.validator.addMethod('abc', function (value, element) {
+  //   return this.optional(element) || /^[a-z][a-z\s]*$/gi.test(value);
+  // }, 'Please only use letters and spaces');
 
   const registrationForm = $('#create-form');
   const updateForm = $('#user-form');
@@ -153,8 +153,7 @@ $(document).ready(function () {
         min: 3
       },
       city: {
-        required: true,
-        abc: true
+        required: true
       },
       state: {
         required: true
