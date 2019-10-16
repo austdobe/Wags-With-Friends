@@ -84,7 +84,8 @@ module.exports = (db) => {
         zipcode: req.session.passport.user.zipcode
       } }).then(function (results) {
         res.render('search', {
-          results: results
+          results: results,
+          isloggedin: req.isAuthenticated()
         });
       });
     } else {
