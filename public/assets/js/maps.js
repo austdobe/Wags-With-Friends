@@ -1,8 +1,11 @@
+// import { userInfo } from "os";
+
 $('.map').on('click', function (event) {
     event.preventDefault();
     $('#map-view').modal('toggle');
     L.mapquest.key = "wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS";
-
+    var userZipCode = $('.map').attr(userInfo.zipcode);
+    console.log(userZipCode)
     L.mapquest.geocoding().geocode(['27511', '27513', '27519', '27560', '27607'], createMap);
 
     // Creating map
