@@ -11,7 +11,7 @@ const chat = function() {
 
   // buttons and inputs
   const username = $('#username');
-  const feedback = $("#feedback")
+  const feedback = $("#feedback");
   const message = $('#message');
   const send_message = $('#send_message');
   const chatArea = $('#chatArea');
