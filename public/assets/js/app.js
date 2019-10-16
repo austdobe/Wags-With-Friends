@@ -73,11 +73,12 @@ $('#login').on('click', function (event) {
   });
 });
 
-//  Trianglify Background
 $(document).ready(function () {
+
+  //  Trianglify Background
   const bg = {
     setBg: function () {
-      // eslint-disable-next-line no-undef
+      // Trianglify is a CDN and is coming back undefined in ESLint
       const pattern = Trianglify({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -88,7 +89,6 @@ $(document).ready(function () {
       pattern.canvas(document.getElementById('canvas-basic'));
     }
   };
-
   bg.setBg();
 
   $(window).resize(function () {
@@ -110,8 +110,27 @@ $(document).ready(function () {
     return this.optional(element) || /^[a-z][a-z\s]*$/gi.test(value);
   }, 'Please only use letters and spaces');
 
-  const form = $('#create-form');
-  form.validate({
+  const registrationForm = $('#create-form');
+  const updateForm = $('#user-form');
+
+  const getValues = () => {
+    const values = {
+      firstName: $('#inputFirst').val().trim(),
+      lastName: $('#inputLast').val().trim(),
+      email: $('#inputEmail').val().trim(),
+      password: $('#inputPassword').val().trim(),
+      street: $('#street').val().trim(),
+      city: $('#city').val().trim(),
+      state: $('#state').val().trim(),
+      zipcode: $('#zipCode').val().trim(),
+      petName: $('#petName').val().trim(),
+      pet: $('#petType').val().trim(),
+      petAge: $('#petAge').val().trim()
+    };
+    return values;
+  };
+
+  const rules = {
     rules: {
       inputFirst: {
         required: true,
@@ -150,28 +169,17 @@ $(document).ready(function () {
         required: true
       },
       petAge: {
-        required: true
+        required: true,
+        min: 3
       }
     }
-  });
+  };
 
   $('#add-user').on('click', function (event) {
     event.preventDefault();
-
-    if (form.valid()) {
-      const newAccount = {
-        firstName: $('#inputFirst').val().trim(),
-        lastName: $('#inputLast').val().trim(),
-        email: $('#inputEmail').val().trim(),
-        password: $('#inputPassword').val().trim(),
-        street: $('#street').val().trim(),
-        city: $('#city').val().trim(),
-        state: $('#state').val().trim(),
-        zipcode: $('#zipCode').val().trim(),
-        petName: $('#petName').val().trim(),
-        pet: $('#petType').val().trim(),
-        petAge: $('#petAge').val().trim()
-      };
+    registrationForm.validate(rules);
+    if (registrationForm.valid()) {
+      const newAccount = getValues();
 
       $.ajax({
         type: 'POST',
@@ -188,22 +196,16 @@ $(document).ready(function () {
 
   $('#update-user').on('click', function (event) {
     event.preventDefault();
+    updateForm.validate(rules);
+    if (updateForm.valid()) {
+      const id = $(this).data('id');
+      // capture All changes
+      const changeUser = getValues();
 
-    const id = $(this).data('id');
+      $('#err-msg').empty('');
+      // $('#change-user-modal').modal('show');
+      console.log(changeUser);
 
-    // capture All changes
-    const changeUser = {
-      firstName: $('#inputFirst').val().trim(),
-      lastName: $('#inputLast').val().trim(),
-      email: $('#inputEmail').val().trim(),
-      password: $('#inputPassword').val().trim()
-    };
-    
-    $('#err-msg').empty('');
-    // $('#change-user-modal').modal('show');
-    console.log(changeUser);
-
-    if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
       $.ajax({
         type: 'PUT',
         url: `/api/user/${id}`,
@@ -217,5 +219,6 @@ $(document).ready(function () {
       console.log('**Please fill out entire form**');
       $('#update-err-msg').empty('').text('**Please fill out entire form**');
     }
+
   });
 });

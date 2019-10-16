@@ -33,40 +33,6 @@
 
   <div id="user-form-cont" class="hidden">
     {{> forms/account-form-block id="user-form" isUpdate=true}}
-
-    {{!-- <form id="user-form">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="inputFirst">First Name</label>
-          <input type="text" class="form-control" id="inputFirst" value="{{userInfo.firstName}}" placeholder="John">
-        </div>
-        <div class="form-group col-md-12">
-          <label for="inputLast">Last Name</label>
-          <input type="text" class="form-control" id="inputLast" value="{{userInfo.lastName}}" placeholder="Doe">
-        </div>
-        <div class="form-group col-md-12">
-          <label for="inputPassword">Email</label>
-          <input type="text" class="form-control" id="inputEmail" value="{{userInfo.email}}">
-        </div>
-        <div class="form-group col-md-12">
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" value="{{userInfo.password}}">
-        </div>
-        <h5 class="theme-title-div m-4">Address</h5>
-        
-        <h5 class="theme-title-div m-4">Pet Information</h5>
-
-      </div>  
-      <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary btn-100">Update</button>
-      <hr>
-      <div class="flex mt-4">
-        {{#unless userInfo.isAdmin}}
-        <button type="submit" id="delete-user" class="btn btn-danger btn-100">Delete</button>
-        {{/unless}}
-        <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary btn-100">Refresh</button>
-        <button id="cancel-edit" class="btn btn-secondary btn-100">Cancel</button>
-      </div>
-    </form> --}}
   </div>
 
   <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
