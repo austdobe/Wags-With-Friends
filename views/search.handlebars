@@ -8,6 +8,7 @@
                 <li data-id="{{this.id}}" class="list-group-item">
                 <a href="example/{{this.id}}">{{this.firstName}}</a>
                 <button class="btn btn-danger float-right message">Message</button>
+                <button type="button" data-id="{{this.is}}" class="btn float-right map" data-toggle="modal" data-target="#map-view">View on map</button>
             </li>
             {{/each}}
             </ul>
