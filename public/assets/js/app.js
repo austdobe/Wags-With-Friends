@@ -46,7 +46,7 @@ $('#register').on('click', function (event) {
 
 $('#login-modal, #login-modal2').on('click', function (event) {
   event.preventDefault();
-  $('#user-info').modal('show');
+  $('#user-info').show()  ;
 });
 
 $('#go-home').on('click', function (event) {
