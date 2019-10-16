@@ -261,3 +261,16 @@ nav.theme-navbar {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Paola */
+.scrollList {
+  max-height: 800px;
+  overflow-y: auto;
+}
+.scrollChat {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.paddingLeft {
+  padding-left:0;
+}
