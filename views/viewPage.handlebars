@@ -1,0 +1,31 @@
+{{> nav/nav-block user=true register=false}}
+
+<div class="container theme-body">
+
+  <header class="header-wrap">
+    <h1 class="text-center"><span class="fas fa-user-circle"></span></h1>
+    <div class="userId">
+      <h3 class="theme-title-div">{{userInfo.firstName}} {{userInfo.lastName}}</h3>
+    </div>
+    <h3 id="update-err-msg"></h3>
+  </header>
+
+  <div id="user-profle" class="row">
+    <div class="col col-md-12">
+      <ul class="list-group mt-4">
+        <li class="list-group-item"><strong>Street:</strong> {{userInfo.address}}</li>
+        <li class="list-group-item flex">
+          <div class="flex-list-group-item"><strong>City:</strong> {{userInfo.city}}</div>
+          <div class="flex-list-group-item"><strong>State:</strong> {{userInfo.state}}</div>
+          <div class="flex-list-group-item"><strong>Zip:</strong> {{userInfo.zipcode}}</div>
+        </li>
+      </ul>
+      <h5 class="theme-title-div m-4">Pet Information</h5>
+      <ul class="list-group mt-4">
+        <li class="list-group-item"><strong>Pet Name:</strong> {{userInfo.petName}}</li>
+        <li class="list-group-item"><strong>Pet Type:</strong> {{userInfo.pet}}</li>
+        <li class="list-group-item"><strong>Pet Age:</strong> {{userInfo.petAge}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
