@@ -23,6 +23,7 @@ module.exports = function (db) {
         db.pets.findAll({}).then(function (dbPets) {
           res.json(dbPets);
         });
+        // Paola
       } else {
         db.pets.findAll({
           where: {
@@ -32,7 +33,16 @@ module.exports = function (db) {
           res.json(dbPets);
         });
       }
-    },
+      const chat = function () {
+        const express = require('express');
+        const app = express();
+        const http = require('http');
+        const server = http.createServer(app);
+        const io = require('socket.io').listen(server);
+        io.on('connection', (socket) => {
+          console.log('New user connected!!!');
+        });
+    }
     // Paola
     // *TODO:
     // Create a new example
@@ -40,12 +50,12 @@ module.exports = function (db) {
       db.Search.create(req.body).then(function (dbExample) {
         res.json(dbExample);
       });
-    },
+    }
     // Delete an example by id
     deleteExample: function (req, res) {
       db.Search.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
         res.json(dbExample);
       });
     }
-  };
-};
+  },
+}}

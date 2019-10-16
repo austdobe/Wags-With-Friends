@@ -1,17 +1,19 @@
-const http = require('http');
-const server = http.createServer(app);
-const io = require('socket.io').listen(server);
-io.on('connection', (socket) => {
-  console.log('New user connected');
-});
+const chat = function () {
+  const express = require('express');
+  const app = express();
+  const http = require('http');
+  const server = http.createServer(app);
+  const io = require('socket.io').listen(server);
+  io.on('connection', (socket) => {
+    console.log('New user connected');
+  });
 
-const chat = function() {
-// make connection
-  const socket = io.connect('http://localhost:3333')
+  // make connection
+  const socket = io.connect('http://localhost:3333');
 
   // buttons and inputs
   const username = $('#username');
-  const feedback = $("#feedback")
+  const feedback = $('#feedback')
   const message = $('#message');
   const send_message = $('#send_message');
   const chatArea = $('#chatArea');
@@ -24,7 +26,7 @@ const chat = function() {
   // Listen on new_message
   socket.on('new_message', (data) => {
     message.val('');
-    chatArea.append('<p class="message">' + data.username + ':'  + data.message + '</p>');
+    chatArea.append('<p class="message">' + data.username + ':' + data.message + '</p>');
   });
 
   // Emit typing
