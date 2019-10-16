@@ -5,15 +5,16 @@
         <div class="row">
             <div class="col col-md-12">
                 <h3 class="theme-title-div mb-4">Nearby Buddies</h3>
-                <ul id="example-list" class="list-group scrollList">
-                    {{#each results}}
-                        <li data-id="{{this.id}}" class="list-group-item">
-                            <a href="example/{{this.id}}">{{this.firstName}}</a>
-                            <button class="btn btn-danger float-right message">Message</button>
-                        </li>
-                    {{/each}}
-                </ul>
-            </div>
+
+                <ul id="example-list" class="list-group">
+            {{#each results}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                <a href="example/{{this.id}}">{{this.firstName}}</a>
+                <button class="btn btn-danger float-right message">Message</button>
+                <button type="button" data-id="{{this.is}}" class="btn float-right map" data-toggle="modal" data-target="#map-view" data-zipCode={{userInfo.zipcode}}>View on map</button>
+            </li>
+            {{/each}}
+            </ul>
         </div>
     </div>
 </div>
