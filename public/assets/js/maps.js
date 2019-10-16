@@ -1,5 +1,7 @@
-const displayMap = function () {
-    L.mapquest.key = process.env.mapquest_key;
+$('.map').on('click', function (event) {
+    event.preventDefault();
+    $('#map-view').modal('toggle');
+    L.mapquest.key = "wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS";
 
     L.mapquest.geocoding().geocode(['27511', '27513', '27519', '27560', '27607'], createMap);
 
@@ -10,10 +12,10 @@ const displayMap = function () {
         center: [0, 0],
         zoom: 12
         }); 
-        const markerGroup = generateMarkers(res);
+        const featureGroup = generateMarkers(res);
         // Add markers to the map and zoom to the features
-        markerGroup.addTo(map);
-        map.fitBounds(markerGroup.getBounds());
+        featureGroup.addTo(map);
+        map.fitBounds(featureGroup.getBounds());
     }
 
     function generateMarkers (res) {
@@ -25,8 +27,8 @@ const displayMap = function () {
             .bindPopup(location.adminArea5 + ', ' + location.adminArea3);
         group.push(marker);
         }
-        return L.markerGroup(group);
+        return L.featureGroup(group);
     }
-};
 
-module.exports = displayMap;
+
+});

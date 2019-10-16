@@ -7,12 +7,23 @@
     <title>Document</title>
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- <script type="text/javascript">
 $("document").ready(function(){
 L.mapquest.key ='wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS';
+var address = {
+    street: '1300 maroubra loop',
+    city: 'cary', 
+    state: 'North Carolina',
+    zip: '27511'
+}
 
-L.mapquest.geocoding().geocode(['1300 maroubra loop cary NC 27511', '27513', '27519', '27560', '27607'], createMap);
+L.mapquest.geocoding().geocode([address.street + " " + address.city + " "+ address.state + " "+ address.zip], createMap);
 
 // Creating map
 function createMap(err, res) {
@@ -21,10 +32,10 @@ function createMap(err, res) {
     center: [0, 0],
     zoom: 12
     }); 
-var markerGroup = generateMarkers(res);
+var featureGroup = generateMarkers(res);
 // Add markers to the map and zoom to the features
-markerGroup.addTo(map);
-map.fitBounds(markerGroup.getBounds());
+featureGroup.addTo(map);
+map.fitBounds(featureGroup.getBounds());
 }
 
 function generateMarkers(res) {
@@ -36,18 +47,40 @@ function generateMarkers(res) {
         .bindPopup(location.adminArea5 + ', ' + location.adminArea3);
         group.push(marker);
     }
-    return L.markerGroup(group);
+    return L.featureGroup(group);
 }
 })
 
-</script>
+</script> -->
 
 </head>
 <body style="border: 0; margin: 0;">
-    <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+        <!-- <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div> -->
+        <button type="button" data-id="{{this.is}}" class="btn float-right map">View on map</button>
+
+        <div class="modal" tabindex="-1" role="dialog" id="map-view">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
 
+<script src="js/maps.js"></script>
 
 </body>
 </html>
