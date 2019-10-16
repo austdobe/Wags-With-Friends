@@ -51,7 +51,9 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.3.0"
+    "sequelize": "^5.3.0",
+    "socket.io": "^2.3.0",
+    "socket.mvc": "^0.2.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
