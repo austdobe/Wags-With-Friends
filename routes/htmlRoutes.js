@@ -82,20 +82,41 @@ module.exports = (db) => {
   // ---------------------------------
 
   router.get('/search', function (req, res) {
-    console.log('ZIPCODE: ' + db.Search);
     if (req.isAuthenticated()) {
       db.User.findAll({ where: {
         zipcode: req.session.passport.user.zipcode
       } }).then(function (results) {
+        const filteredResults = results.filter(function (d) {
+          if (d.id !== req.session.passport.user.id) {
+            return d;
+          }
+        });
         res.render('search', {
-          results: results,
-          isloggedin: req.isAuthenticated()
+          results: filteredResults,
+          userInfo: req.session.passport.user
         });
       });
     } else {
       res.redirect('/');
     }
   });
+
+  router.get('/viewPage/:id', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.User.findOne({ where: {
+        id: req.params.id
+      } }).then(function (results) {
+        res.render('viewPage', {
+          userInfo: results
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // ---------------------------------------
+
   // Load example page and pass in an example by id
   router.get('/example/:id', function (req, res) {
     if (req.isAuthenticated()) {
