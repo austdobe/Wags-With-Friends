@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const helpers = require('./../config/handlebars');
 
 module.exports = (db) => {
   // Load register page
@@ -20,9 +21,12 @@ module.exports = (db) => {
       }).then(() => {
         const user = {
           userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
+          isloggedin: req.isAuthenticated(),
+          // custom helper to select user's state, pet type in dropdowns
+          helpers: {
+            select: helpers.select
+          }
         };
-        // console.log(user);
         res.render('profile', user);
       });
     } else {
