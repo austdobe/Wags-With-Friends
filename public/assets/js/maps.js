@@ -1,7 +1,7 @@
 // import { get } from "http";
 
 // import { userInfo } from "os";
-var maps = function(userZip, friendZip){
+var maps = function(){
 $('.map').on('click', function (event) {
     event.preventDefault();
     $('#map-view').modal('toggle');
