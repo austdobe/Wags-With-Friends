@@ -59,9 +59,16 @@ module.exports = (passport, db) => {
       // console.log('req.body:', req.body);
       db.User.update({
         email: req.body.email,
+        password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        password: req.body.password
+        address: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        petName: req.body.petName,
+        pet: req.body.pet,
+        petAge: req.body.petAge
       }, {
         where: { id: req.params.id }
       }).then(result => {
