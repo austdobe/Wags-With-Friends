@@ -90,6 +90,9 @@ module.exports = (db) => {
       res.redirect('/');
     }
   });
+
+  // ---------------------------------------
+
   // Load example page and pass in an example by id
   router.get('/example/:id', function (req, res) {
     if (req.isAuthenticated()) {

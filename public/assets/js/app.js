@@ -1,34 +1,3 @@
-$('#add-user').on('click', function (event) {
-  event.preventDefault();
-
-  const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim(),
-    street: $('#street').val().trim(),
-    city: $('#city').val().trim(),
-    state: $('#state').val().trim(),
-    zipcode: $('#zipCode').val().trim(),
-    petName: $('#petName').val().trim(),
-    pet: $('#petType').val().trim(),
-    petAge: $('#petAge').val().trim()
-  };
-
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
-    $.ajax({
-      type: 'POST',
-      url: '/api/register',
-      data: newAccount
-    }).then(() => {
-      window.location.href = '/';
-    });
-  } else {
-    console.log('**Please fill out entire form**');
-    $('#create-err-msg').empty('').text('**Please fill out entire form**');
-  }
-});
-
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
@@ -163,8 +132,88 @@ $(document).ready(function () {
     $('#user-form-cont').attr('class', '');
     $(this).parent().parent().hide();
   });
+
   $('#cancel-edit').on('click', function () {
     $('#user-form-cont').addClass('hidden');
     $('#user-profile').show();
+  });
+
+  jQuery.validator.addMethod('abc', function (value, element) {
+    return this.optional(element) || /^[a-z][a-z\s]*$/gi.test(value);
+  }, 'Please only use letters and spaces');
+
+  const form = $('#create-form');
+  form.validate({
+    rules: {
+      inputFirst: {
+        required: true,
+        minlength: 3
+      },
+      inputLast: {
+        required: true,
+        min: 3
+      },
+      inputEmail: {
+        required: true,
+        email: true
+      },
+      inputPassword: {
+        required: true,
+        min: 3
+      },
+      street: {
+        required: true,
+        min: 3
+      },
+      city: {
+        required: true,
+        abc: true
+      },
+      state: {
+        required: true
+      },
+      zipCode: {
+        digits: true
+      },
+      petName: {
+        required: true
+      },
+      petType: {
+        required: true
+      },
+      petAge: {
+        required: true
+      }
+    }
+  });
+
+  $('#add-user').on('click', function (event) {
+    event.preventDefault();
+
+    if (form.valid()) {
+      const newAccount = {
+        firstName: $('#inputFirst').val().trim(),
+        lastName: $('#inputLast').val().trim(),
+        email: $('#inputEmail').val().trim(),
+        password: $('#inputPassword').val().trim(),
+        street: $('#street').val().trim(),
+        city: $('#city').val().trim(),
+        state: $('#state').val().trim(),
+        zipcode: $('#zipCode').val().trim(),
+        petName: $('#petName').val().trim(),
+        pet: $('#petType').val().trim(),
+        petAge: $('#petAge').val().trim()
+      };
+      $.ajax({
+        type: 'POST',
+        url: '/api/register',
+        data: newAccount
+      }).then(() => {
+        window.location.href = '/';
+      });
+    } else {
+      console.log('**Please fill out entire form**');
+      $('#create-err-msg').empty('').text('**Please fill out entire form**');
+    }
   });
 });
