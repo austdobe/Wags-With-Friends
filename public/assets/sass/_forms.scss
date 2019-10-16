@@ -1,3 +1,32 @@
 .form-control{
     border-radius: 0;
 }
+
+.user-form{
+    .form-row{
+
+        width: 100%;
+
+        .form-group{
+            display: block;
+    
+            label{
+                display: block;
+                font-size: 1em;
+                padding-bottom: 0;
+                margin-bottom: .25em;
+            }
+    
+            input{
+                display: block;
+                width: 100%;
+                height: 3em;
+            }
+    
+            select{
+                height: 3em;
+                border-radius: 0;
+            }
+        }
+    }
+}

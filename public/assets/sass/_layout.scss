@@ -69,29 +69,19 @@ body{
     padding: 2em;
 }
 
-.theme-title-div {
-    overflow: hidden;
-    text-align: center;
 
-    &::before,
-    &::after {
-        background-color: $color-secondary;
-        content: "";
-        display: inline-block;
-        height: 1px;
-        position: relative;
-        vertical-align: middle;
-        width: 50%;
-    }
+/*# sourceMappingURL=style.css.map */
 
-    &::before {
-        right: 0.5em;
-        margin-left: -50%;
-    }
-
-    &::after {
-        left: 0.5em;
-        margin-right: -50%;
-    }
-}
-
+/* Paola */
+.scrollList {
+    max-height: 800px;
+    overflow-y: auto;
+  }
+  .scrollChat {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .paddingLeft {
+    padding-left:0;
+  }
+  

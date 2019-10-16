@@ -106,26 +106,20 @@ body {
   padding: 2em;
 }
 
-.theme-title-div {
-  overflow: hidden;
-  text-align: center;
+/*# sourceMappingURL=style.css.map */
+/* Paola */
+.scrollList {
+  max-height: 800px;
+  overflow-y: auto;
 }
-.theme-title-div::before, .theme-title-div::after {
-  background-color: #56CCF2;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  position: relative;
-  vertical-align: middle;
-  width: 50%;
+
+.scrollChat {
+  max-height: 400px;
+  overflow-y: auto;
 }
-.theme-title-div::before {
-  right: 0.5em;
-  margin-left: -50%;
-}
-.theme-title-div::after {
-  left: 0.5em;
-  margin-right: -50%;
+
+.paddingLeft {
+  padding-left: 0;
 }
 
 .flex, .flex-center {
@@ -233,6 +227,28 @@ nav.theme-navbar {
   border-radius: 0;
 }
 
+.user-form .form-row {
+  width: 100%;
+}
+.user-form .form-row .form-group {
+  display: block;
+}
+.user-form .form-row .form-group label {
+  display: block;
+  font-size: 1em;
+  padding-bottom: 0;
+  margin-bottom: 0.25em;
+}
+.user-form .form-row .form-group input {
+  display: block;
+  width: 100%;
+  height: 3em;
+}
+.user-form .form-row .form-group select {
+  height: 3em;
+  border-radius: 0;
+}
+
 /*--------Desktop & Tablet--------*/
 @media only screen and (min-width: 768px) {
   .flex, .flex-center {
@@ -261,16 +277,3 @@ nav.theme-navbar {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-/* Paola */
-.scrollList {
-  max-height: 800px;
-  overflow-y: auto;
-}
-.scrollChat {
-  max-height: 400px;
-  overflow-y: auto;
-}
-.paddingLeft {
-  padding-left:0;
-}
