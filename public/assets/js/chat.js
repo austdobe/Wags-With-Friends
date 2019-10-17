@@ -5,26 +5,26 @@ io.on('connection', (socket) => {
   console.log('New user connected');
 });
 
-const chat = function() {
+const chat = function () {
 // make connection
-  const socket = io.connect('http://localhost:3333')
+  const socket = io.connect('http://localhost:3333');
 
   // buttons and inputs
-  const username = $('#username');
-  const feedback = $("#feedback");
+  // const username = $('#username');
+  const feedback = $('#feedback');
   const message = $('#message');
-  const send_message = $('#send_message');
+  const sendMessage = $('#send_message');
   const chatArea = $('#chatArea');
 
   // Emit message
-  send_message.click(function () {
+  sendMessage.click(function () {
     socket.emit('new_message', { message: message.val() });
   });
 
   // Listen on new_message
   socket.on('new_message', (data) => {
     message.val('');
-    chatArea.append('<p class="message">' + data.username + ':'  + data.message + '</p>');
+    chatArea.append('<p class="message">' + data.username + ':' + data.message + '</p>');
   });
 
   // Emit typing

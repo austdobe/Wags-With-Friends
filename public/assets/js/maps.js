@@ -1,22 +1,23 @@
-// import { get } from "http";
-module.exports = function(db){
+/* eslint-disable no-undef */
 
-$('.map').on('click', function (event) {
+    $('.map').on('click', function (event) {
     event.preventDefault();
     $('#map-view').modal('toggle');
-    L.mapquest.key = "wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS";
+    L.mapquest.key ='wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS';
+    const userZipCode = $('#userInfoForMap').data('zipcode');
     console.log(userZipCode);
-    L.mapquest.geocoding().geocode([27513], createMap);
+    L.mapquest.geocoding().geocode([userZipCode], createMap);
 
     // Creating map
     function createMap (err, res) {
+        if (err) throw err;
         const map = L.mapquest.map('map', {
         layers: L.mapquest.tileLayer('map'),
         center: [0, 0],
         zoom: 12
-        }); 
+        });
         const featureGroup = generateMarkers(res);
-        // Add markers to the map and zoom to the features
+      // Add markers to the map and zoom to the features
         featureGroup.addTo(map);
         map.fitBounds(featureGroup.getBounds());
     }
@@ -31,8 +32,6 @@ $('.map').on('click', function (event) {
         group.push(marker);
         }
         return L.featureGroup(group);
-    }
+        }
+    });
 
-
-});
-};

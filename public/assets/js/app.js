@@ -46,7 +46,7 @@ $('#register').on('click', function (event) {
 
 $('#login-modal, #login-modal2').on('click', function (event) {
   event.preventDefault();
-  $('#user-info').modal('show');
+  $('#user-info').show();
 });
 
 $('#go-home').on('click', function (event) {
@@ -74,11 +74,11 @@ $('#login').on('click', function (event) {
 });
 
 $(document).ready(function () {
-
   //  Trianglify Background
   const bg = {
     setBg: function () {
       // Trianglify is a CDN and is coming back undefined in ESLint
+      // eslint-disable-next-line no-undef
       const pattern = Trianglify({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -218,6 +218,5 @@ $(document).ready(function () {
       console.log('**Please fill out entire form**');
       $('#update-err-msg').empty('').text('**Please fill out entire form**');
     }
-
   });
 });

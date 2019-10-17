@@ -81,8 +81,12 @@ module.exports = (db) => {
 
   // ---------------------------------
 
+
   router.get('/search', function (req, res) {
+    // eslint-disable-next-line no-var
+    var userZip;
     if (req.isAuthenticated()) {
+      userZip = req.session.passport.user;
       db.User.findAll({ where: {
         zipcode: req.session.passport.user.zipcode
       } }).then(function (results) {
@@ -93,8 +97,9 @@ module.exports = (db) => {
         });
         res.render('search', {
           results: filteredResults,
-          userInfo: req.session.passport.user
+          userInfo: userZip
         });
+        console.log(userZip);
       });
     } else {
       res.redirect('/');
@@ -108,6 +113,21 @@ module.exports = (db) => {
       } }).then(function (results) {
         res.render('viewPage', {
           userInfo: results
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  router.get('/viewMessages', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Messages.findAll({ where: {
+        userId: req.session.passport.user.id
+      }
+      }).then(function (results) {
+        res.render('viewMessage', {
+          results: results
         });
       });
     } else {
