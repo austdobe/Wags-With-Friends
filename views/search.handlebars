@@ -9,12 +9,14 @@
                 <ul id="example-list" class="list-group">
             {{#each results}}
                 <li data-id="{{this.id}}" class="list-group-item">
-                <a href="example/{{this.id}}">{{this.firstName}}</a>
+                <a href="viewPage/{{this.id}}">{{this.firstName}}</a>
                 <button class="btn btn-danger float-right message">Message</button>
-                <button type="button" data-id="{{this.is}}" class="btn float-right map" data-toggle="modal" data-target="#map-view" data-zipCode={{userInfo.zipcode}}>View on map</button>
+                
+                <button type="button" data-id="{{this.id}}" class="btn float-right map {{userInfo}}" data-toggle="modal" data-target="#map-view">View on map</button>
             </li>
             {{/each}}
             </ul>
+            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
         </div>
     </div>
 </div>
@@ -31,7 +33,7 @@
                     <ul class="list-group list-group-flush scrollChat">
                         {{#each results}}
                             <li data-id="{{this.id}}" class="list-group-item">
-                                <a href="example/{{this.id}}">{{this.firstName}}</a>
+                                <a href="viewPage/{{this.id}}">{{this.firstName}}</a>
                             </li>
                         {{/each}}
                     </ul>
