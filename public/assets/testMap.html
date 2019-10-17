@@ -13,9 +13,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!-- <script type="text/javascript">
-$("document").ready(function(){
-L.mapquest.key ='wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS';
+
+<script type="text/javascript">
+$("document").ready(function(){ 
+// $('.mapButton').on('click', function () {
+L.mapquest.key ='G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
 var address = {
     street: '1300 maroubra loop',
     city: 'cary', 
@@ -51,12 +53,13 @@ function generateMarkers(res) {
 }
 })
 
-</script> -->
+</script>
 
 </head>
 <body style="border: 0; margin: 0;">
-        <!-- <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div> -->
-        <button type="button" data-id="{{this.id}}" class="btn float-right map">View on map</button>
+        <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+        
+        <button type="button" class="btn float-right mapButton">View on map</button>
 
         <div class="modal" tabindex="-1" role="dialog" id="map-view">
             <div class="modal-dialog" role="document">
@@ -79,7 +82,7 @@ function generateMarkers(res) {
 
 
 
-<script src="js/maps.js"></script>
+<!-- <script src="js/maps.js"></script> -->
 
 </body>
 </html>
