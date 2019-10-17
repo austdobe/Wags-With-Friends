@@ -33,6 +33,7 @@
                 </li>
             {{/each}}
             </ul>
+            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
         </div>
     </div>
 </div>
@@ -49,7 +50,7 @@
                     <ul class="list-group list-group-flush scrollChat">
                         {{#each results}}
                             <li data-id="{{this.id}}" class="list-group-item">
-                                <a href="example/{{this.id}}">{{this.firstName}}</a>
+                                <a href="viewPage/{{this.id}}">{{this.firstName}}</a>
                             </li>
                         {{/each}}
                     </ul>
@@ -79,4 +80,4 @@
     </div>
     <br>
         {{!-- Paola --}}
- 
+
