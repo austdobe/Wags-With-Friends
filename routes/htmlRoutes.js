@@ -89,7 +89,10 @@ module.exports = (db) => {
       } }).then(function (results) {
         res.render('search', {
           results: results,
-          isloggedin: req.isAuthenticated()
+          isloggedin: req.isAuthenticated(),
+          helpers: {
+            ifEquals: helpers.ifEquals
+          }
         });
       });
     } else {
