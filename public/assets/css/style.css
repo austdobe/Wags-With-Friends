@@ -250,6 +250,70 @@ nav.theme-navbar {
   border-radius: 0;
 }
 
+.search {
+  border: none;
+}
+.search__user {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 0.75em;
+  border: 2px solid #2C5364;
+  overflow: hidden;
+}
+.search__user:first-child, .search__user:last-child {
+  border-radius: 0;
+}
+.search__user--header {
+  display: flex;
+  margin-top: -1px;
+  flex-direction: row;
+  background: #0F2027;
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  color: #ccc;
+}
+.search__user--header-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search__user--header-icon-span {
+  padding: 0.5em;
+  font-size: 2em;
+}
+.search__user--header-title {
+  padding: 0.5em;
+  width: 100%;
+  color: #ccc;
+  padding-top: 0.75em;
+  text-transform: capitalize;
+}
+.search__user--content {
+  padding: 1em;
+  width: 100%;
+}
+.search__user--buttons {
+  display: flex;
+}
+.search__user--buttons button {
+  border: none;
+  border-top: 1px solid #ddd;
+}
+.search__user--buttons button:not(:first-child) {
+  border-left: 1px solid #ddd;
+  margin-top: 0;
+}
+
+.description__list {
+  list-style: none;
+  padding-left: 0;
+}
+.description__list-item {
+  line-height: 2em;
+}
+
 /*--------Desktop & Tablet--------*/
 @media only screen and (min-width: 768px) {
   .flex, .flex-center {

@@ -97,7 +97,11 @@ module.exports = (db) => {
         });
         res.render('search', {
           results: filteredResults,
-          userInfo: userZip
+          userInfo: userZip,
+          isloggedin: req.isAuthenticated(),
+          helpers: {
+            ifEquals: helpers.ifEquals
+          }
         });
         console.log(userZip);
       });

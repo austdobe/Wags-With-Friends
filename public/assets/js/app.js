@@ -89,6 +89,7 @@ $(document).ready(function () {
       pattern.canvas(document.getElementById('canvas-basic'));
     }
   };
+
   bg.setBg();
 
   $(window).resize(function () {
