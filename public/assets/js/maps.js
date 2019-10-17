@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 $('document').ready(function () {
   $('.map').on('click', function (event) {
     event.preventDefault();
