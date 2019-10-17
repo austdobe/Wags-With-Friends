@@ -33,4 +33,4 @@ $('.map').on('click', function (event) {
     }
     return L.featureGroup(group);
   }
-});
+  

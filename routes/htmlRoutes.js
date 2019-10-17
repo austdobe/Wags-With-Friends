@@ -81,7 +81,6 @@ module.exports = (db) => {
 
   // ---------------------------------
 
-
   router.get('/search', function (req, res) {
     // eslint-disable-next-line no-var
     var userZip;
@@ -97,7 +96,11 @@ module.exports = (db) => {
         });
         res.render('search', {
           results: filteredResults,
-          userInfo: userZip
+          userInfo: userZip,
+          isloggedin: req.isAuthenticated(),
+          helpers: {
+            ifEquals: helpers.ifEquals
+          }
         });
         console.log(userZip);
       });
@@ -122,13 +125,26 @@ module.exports = (db) => {
 
   router.get('/viewMessages', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Messages.findAll({ where: {
-        userId: req.session.passport.user.id
-      }
+      db.Message.findAll({
+        where: {
+          userId: req.session.passport.user.id
+        }
       }).then(function (results) {
-        res.render('viewMessage', {
-          results: results
-        });
+        console.log(results);
+        if (results.length > 0) {
+          res.render('viewMessage', {
+            messages: true,
+            userInfo: req.session.passport.user,
+            results: results,
+            isloggedin: req.isAuthenticated()
+          });
+        } else {
+          res.render('viewMessage', {
+            messages: false,
+            userInfo: req.session.passport.user,
+            isloggedin: req.isAuthenticated()
+          });
+        }
       });
     } else {
       res.redirect('/');
