@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
   console.log('New user connected');
 
   // default username
-  socket.username = "Anonymous"
+  socket.username = 'Anonymous';
 
   // listen on new_message
   socket.on('new_message', (data) => {
