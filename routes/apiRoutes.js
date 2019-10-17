@@ -18,8 +18,8 @@ module.exports = (passport, db) => {
   // *TODO:
   // Paola
   router.get('/search', AppController.getZipCode);
-  // Paola
-  // *TODO:
+  // MESSAGES:
+  router.post('/messages', AppController.createMessage);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
