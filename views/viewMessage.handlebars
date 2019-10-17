@@ -1,0 +1,19 @@
+{{> nav/nav-block}}
+
+<div id="home">
+    <div class="container theme-body">
+        <div class="row">
+            <div class="col col-md-12">
+                <h3 class="theme-title-div mb-4">Messages</h3>
+
+                <ul id="example-list" class="list-group">
+            {{#each results}}
+                <p>{{this.senderID}}</p>
+                <p>{{this.message}}</p>
+            </li>
+            {{/each}}
+            </ul>
+            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
+        </div>
+    </div>
+</div>
