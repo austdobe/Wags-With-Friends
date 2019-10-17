@@ -6,14 +6,21 @@
             <div class="col col-md-12">
                 <h3 class="theme-title-div mb-4">Messages</h3>
 
+                {{#if messages}}
                 <ul id="example-list" class="list-group">
-            {{#each results}}
-                <p>{{this.senderID}}</p>
-                <p>{{this.message}}</p>
-            </li>
-            {{/each}}
-            </ul>
-            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
+                    {{#each results}}
+                    <li>
+                        <p>{{this.senderID}}</p>
+                        <p>{{this.message}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <h6>No Messages T_T</h6>
+                {{/if}}
+                
+                <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}"
+                    data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
+            </div>
         </div>
     </div>
-</div>
