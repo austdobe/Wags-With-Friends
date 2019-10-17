@@ -1,14 +1,12 @@
 // import { get } from "http";
+module.exports = function(db){
 
-// import { userInfo } from "os";
-var maps = function(){
 $('.map').on('click', function (event) {
     event.preventDefault();
     $('#map-view').modal('toggle');
     L.mapquest.key = "wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS";
-    var userZipCode = $('.map').attr(userInfo.zipcode);
     console.log(userZipCode);
-    L.mapquest.geocoding().geocode([userZip, friendZip], createMap);
+    L.mapquest.geocoding().geocode([27513], createMap);
 
     // Creating map
     function createMap (err, res) {
