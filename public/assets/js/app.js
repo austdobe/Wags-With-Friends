@@ -221,31 +221,4 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on('click', '.message', function () {
-    const recipient = $(this).data('recipient-id');
-    $('#message-submit').attr('data-recipient-id', recipient);
-    console.log('hello');
-  });
-
-  $(document).on('click', '.message-submit', function () {
-    // event.preventDefault();
-    const recipient = $(this).data('recipient-id');
-    const sender = $(this).data('sender-id');
-    const message = $('#message-text').val().trim();
-
-    const messageObj = {
-      message: message,
-      userId: recipient,
-      senderId: sender
-    };
-
-    console.log(messageObj);
-    // $.ajax({
-    //   url: '/api/messages',
-    //   method: 'POST',
-    //   data: messageObj
-    // }).then(function (res) {
-    //   console.log(res);
-    // });
-  });
 });
