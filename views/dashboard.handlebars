@@ -15,7 +15,6 @@
         <h1 class="text-center">Welcome Back {{user.firstName}}!</h1>
         <hr>
         <a href="/search" class="btn btn-primary btn-100">Search for Buddies!</a>
-        <a href="/chat" class="btn btn-primary btn-100">See who is online</a>
         <a href="/logout" class="btn btn-secondary btn-100">Logout</a>
       </div>
     </div>
@@ -33,8 +32,7 @@
         <p>Login or create an account to use this app.</p>
         <div class="flex">
           <a class="btn btn-primary btn-100" href="#" id="login-modal2">Login</a>
-          {{!-- Chat Button --}}
-          {{!-- <a class="btn btn-primary btn-100" href="/chat" id="chat">Chat</a> --}}
+          
           <a class="btn btn-outline-primary btn-100" href="/register" data-register={{register}}>Register</a>
         </div>
         <h5 id="login-err-msg"></h5>
