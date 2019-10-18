@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col col-md-12">
                 <h3 class="theme-title-div mb-4">Nearby Buddies</h3>
+
                 <ul id="example-list" class="list-group search">
             {{#each results}}
                 <li data-id="{{this.id}}" class="list-group-item search__user">
@@ -48,39 +49,45 @@
                         Connected matches
                     </div>
                     <ul class="list-group list-group-flush scrollChat">
+
+                {{#if matches}}
+                    <ul id="example-list" class="list-group search">
+
                         {{#each results}}
-                            <li data-id="{{this.id}}" class="list-group-item">
-                                <a href="viewPage/{{this.id}}">{{this.firstName}}</a>
+                            <li data-id="{{this.id}}" class="list-group-item search__user">
+                                <div class="search__user--header">
+                                    <div class="search__user--header-icon">
+                                        {{#ifEquals this.pet "dog"}}
+                                            <span class="fas fa-dog search__user--header-icon-span"></span>
+                                        {{else}}
+                                            <span class="fas fa-cat search__user--header-icon-span"></span>
+                                        {{/ifEquals}}
+                                    </div>
+                                
+                                    <h4 class="search__user--header-title">{{this.petName}}</h4>
+                                </div>
+                                <div class="search__user--content">
+                                    <ul class="description__list">
+                                        <li class="description__list-item"><strong>Pet Type: </strong>{{this.pet}}</li>
+                                        <li class="description__list-item"><strong>Pet Age: </strong>{{this.petAge}}</li>
+                                        <li class="description__list-item"><strong>Owner: </strong> <a href="example/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="search__user--buttons">
+                                    <button class="btn btn-light btn-block rounded-0 message">Message</button>
+                                    <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 map" data-toggle="modal" data-target="#map-view" data-zipCode={{userInfo.zipcode}}>View on map</button>
+                                </div>
                             </li>
                         {{/each}}
                     </ul>
-                </div>
-            </div>
-            <div class="col-8 paddingLeft d-flex">
-                <div class="card w-100">
-                    <div class="card-header">
-                        Chat Area
-                    </div>
-                    <div id= "chatArea" class= "card-body  scrollChat">
-                        Messages
-                        <div id="feedback"></div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="input-group ">
-                            <input id="message" type="text" class="form-control" placeholder="Type message" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button id="send_message" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {{else}}
+                    <h4 class="no-results">No Matches Found T_T</h4>
+                {{/if}}
+               
+            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
         </div>
-        <script src="chat.js"></script>
     </div>
-    <br>
-        {{!-- Paola --}}
-
+</div>
 
         <div class="modal" tabindex="-1" role="dialog" id="map-view">
             <div class="modal-dialog" role="document">

@@ -99,3 +99,4 @@ INSERT INTO pets
     (firstName, lastName, email, password, isAdmin, pet, petAge, petName, address, zipcode, city, state)
 VALUES
     ("Jeff", "Albert", "jalbert@gmail.com", "green99", false, "cat", 3, "Luna", " 6 Marsh Landing Ct ", 27703, "Durham", "NC");
+

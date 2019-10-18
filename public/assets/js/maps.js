@@ -1,15 +1,18 @@
 /* eslint-disable no-undef */
+
 // $("document").ready(function(){
 var userZipCode = [];
 $('.mapButton').on('click', function (event) {
+
     event.preventDefault();
-    console.log("click");
+    console.log('click');
     $('#map-view').modal('toggle');
-    L.mapquest.key ='G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
+    L.mapquest.key = 'G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
     console.log(L.mapquest.key);
     userZipCode.push($('#userInfoForMap').data('zipcode').toString());
     
     console.log(userZipCode);
+
     L.mapquest.geocoding().geocode(userZipCode, createMap);
     });
     // Creating map
@@ -39,4 +42,4 @@ $('.mapButton').on('click', function (event) {
         return L.featureGroup(group);
         }
     
-// });
+
