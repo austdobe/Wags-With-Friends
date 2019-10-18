@@ -1,19 +1,40 @@
-const $submitBTN = $('#submit');
+const messageButtonHandler = function (event) {
+  const recipient = $(this).data('recipient-id');
+  $('#message-submit').attr('data-recipient-id', recipient);
+};
 
-const handleMsgSubmit = function (event) {
-  console.log('works');
+const messageSubmitHandler = function (event) {
   event.preventDefault();
-  const messageSent = {
-    message: $('#messagePost').val().trim(),
-    userId: $('#messagePost').data('reciver'),
-    senderId: $('#messagePost').data('sender')
+  const recipient = $(this).data('recipient-id');
+  const sender = $(this).data('sender-id');
+  const message = $('#message-text').val().trim();
+  const senderName = $(this).data('sender-name');
+
+  const messageObj = {
+    message: message,
+    userId: recipient,
+    senderId: sender,
+    senderName: senderName
   };
 
   $.ajax({
     type: 'POST',
     url: '/api/messages',
-    data: messageSent
+    data: messageObj
   });
 };
 
-$submitBTN.on('click', handleMsgSubmit);
+const messageDeleteHandler = function (event) {
+  event.preventDefault();
+
+  const messageId = $(this).data('message-id');
+  $.ajax({
+    type: 'DELETE',
+    url: '/api/messages/' + messageId
+  });
+  location.reload();
+};
+
+$(document).on('click', '.message', messageButtonHandler);
+$(document).on('click', '#message-submit', messageSubmitHandler);
+$(document).on('click', '.delete-message', messageDeleteHandler);

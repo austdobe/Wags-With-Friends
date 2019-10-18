@@ -38,6 +38,11 @@ module.exports = function (db) {
         res.json(result);
       });
     },
+    deleteMessage: function (req, res) {
+      db.Message.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+        res.json(dbExample);
+      });
+    },
     // Create a new example
     createExample: function (req, res) {
       db.Search.create(req.body).then(function (dbExample) {

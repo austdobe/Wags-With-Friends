@@ -20,6 +20,7 @@ module.exports = (passport, db) => {
   router.get('/search', AppController.getZipCode);
   // MESSAGES:
   router.post('/messages', AppController.createMessage);
+  router.delete('/messages/:id', AppController.deleteMessage);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
