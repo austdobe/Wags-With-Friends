@@ -1,20 +1,21 @@
 /* eslint-disable no-undef */
-$("document").ready(function(){
-    $('.mapButton').on('click', function (event) {
+// $("document").ready(function(){
+var userZipCode = [];
+$('.mapButton').on('click', function (event) {
     event.preventDefault();
     console.log("click");
     $('#map-view').modal('toggle');
     L.mapquest.key ='G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
     console.log(L.mapquest.key);
-    const userZipCode = $('#userInfoForMap').data('zipcode');
-    userZipCode.toString();
-    console.log(userZipCode);
-    L.mapquest.geocoding().geocode([userZipCode], createMap);
+    userZipCode.push($('#userInfoForMap').data('zipcode').toString());
     
+    console.log(userZipCode);
+    L.mapquest.geocoding().geocode(userZipCode, createMap);
+    });
     // Creating map
     function createMap (err, res) {
-        console.log(userZipCode +" function zip");
-        if (err) throw err;
+        console.log(typeof userZipCode +" function zip");
+        // if (err) throw err;
         const map = L.mapquest.map('map', {
         layers: L.mapquest.tileLayer('map'),
         center: [0, 0],
@@ -37,5 +38,5 @@ $("document").ready(function(){
         }
         return L.featureGroup(group);
         }
-    });
-});
+    
+// });

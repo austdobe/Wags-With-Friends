@@ -28,7 +28,7 @@ var address = {
     zip: '27511'
 }
 
-L.mapquest.geocoding().geocode([address.street + " " + address.city + " "+ address.state + " "+ address.zip], createMap);
+L.mapquest.geocoding().geocode(['27513'], createMap);
 
 // Creating map
 function createMap(err, res) {
