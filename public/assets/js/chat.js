@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+
+$(document).ready(() => {
+  // Connect to the socket.io server
+  const socket = io.connect();
+});
+=======
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
@@ -39,3 +46,4 @@ const chat = function () {
 };
 
 module.exports = chat;
+>>>>>>> b24f0eab5f2956d0f38cffd39e5b6d1ffe7b4292

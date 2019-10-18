@@ -94,20 +94,35 @@ module.exports = (db) => {
             return d;
           }
         });
-        res.render('search', {
-          results: filteredResults,
-          userInfo: userZip,
-          isloggedin: req.isAuthenticated(),
-          helpers: {
-            ifEquals: helpers.ifEquals
-          }
-        });
-        console.log(userZip);
+
+        if (filteredResults.length > 0) {
+          res.render('search', {
+            matches: true,
+            results: filteredResults,
+            userInfo: userZip,
+            isloggedin: req.isAuthenticated(),
+            helpers: {
+              ifEquals: helpers.ifEquals
+            }
+          });
+        } else {
+          res.render('search', {
+            matches: false,
+            userInfo: userZip,
+            isloggedin: req.isAuthenticated()
+          });
+        }
+        // console.log(userZip);
       });
     } else {
       res.redirect('/');
     }
   });
+  // Paola
+  router.get('/chat', function (req, res) {
+    res.render('chat');
+  });
+  // Paola
 
   router.get('/viewPage/:id', function (req, res) {
     if (req.isAuthenticated()) {
@@ -123,7 +138,7 @@ module.exports = (db) => {
     }
   });
 
-  router.get('/viewMessages', function (req, res) {
+  router.get('/inbox', function (req, res) {
     if (req.isAuthenticated()) {
       db.Message.findAll({
         where: {
