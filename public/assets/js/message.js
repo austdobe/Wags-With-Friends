@@ -23,6 +23,7 @@ const messageAPI = {
   }
 };
 
+// identifiers need # or .
 $('submitMsg').on('click', function (event) {
   event.preventDefault();
 
@@ -33,4 +34,10 @@ $('submitMsg').on('click', function (event) {
   };
 
   messageAPI.saveMessage(message);
+});
+
+$(document).on('click', '.message', function () {
+  const recipient = $(this).data('recipient-id');
+  $('#message-submit').attr('data-recipient-id', recipient);
+  console.log('hello');
 });

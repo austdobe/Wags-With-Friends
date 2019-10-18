@@ -28,8 +28,8 @@
                             </ul>
                         </div>
                         <div class="search__user--buttons">
-                            <button class="btn btn-light btn-block rounded-0 message">Message</button>
-                            <button type="button" data-id="{{this.is}}" class="btn btn-light btn-block rounded-0 mapButton" data-zipCode={{userInfo.zipcode}}>View on map</button>
+                            <button class="btn btn-light btn-block rounded-0 message" data-recipient-id="{{this.id}}" data-toggle="modal" data-target="#message-modal">Message</button>
+                            <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 mapButton" data-zipCode={{userInfo.zipcode}}>View on map</button>
                         </div>
                     </li>
                 {{/each}}
@@ -55,6 +55,32 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="message-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Send a Message <!--- to <span id="message-recipient"></span>---></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" id="message-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message-text">Message</label>
+                        <textarea name="message-text" id="message-text" class="form-control" rows="10"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" id="message-submit" data-sender-id="{{userInfo.id}}">Send</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
