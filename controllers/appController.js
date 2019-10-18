@@ -33,8 +33,11 @@ module.exports = function (db) {
         });
       }
     },
-    // Paola
-    // *TODO:
+    createMessage: function (req, res) {
+      db.Message.create(req.body).then(function (result) {
+        res.json(result);
+      });
+    },
     // Create a new example
     createExample: function (req, res) {
       db.Search.create(req.body).then(function (dbExample) {

@@ -68,9 +68,14 @@ const io = socketIO(server);
 const portIO = process.env.PORT || 3000;
 const clients = [];
 
+<<<<<<< HEAD
 server.listen(portIO, () => {
   console.log(`Server is up on port ${portIO}`);
 });
+=======
+  // default username
+  socket.username = 'Anonymous';
+>>>>>>> b24f0eab5f2956d0f38cffd39e5b6d1ffe7b4292
 
 io.on('connection', (socket) => {
   console.log('New user connected!');
