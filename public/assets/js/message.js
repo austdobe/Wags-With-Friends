@@ -22,3 +22,15 @@ const messageAPI = {
     });
   }
 };
+
+$('submitMsg').on('click', function (event) {
+  event.preventDefault();
+
+  console.log(session.passport.user);
+  const message = {
+    message: $('messagePost').val().trim()
+    // userId:
+  };
+
+  messageAPI.saveMessage(message);
+});
