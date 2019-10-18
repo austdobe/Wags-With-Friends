@@ -60,7 +60,6 @@ db.sequelize.sync(syncOptions).then(() => {
   });
 });
 
-<<<<<<< HEAD
 // // Paola
 // const http = require('http');
 // const server = http.createServer(app);
@@ -82,42 +81,6 @@ db.sequelize.sync(syncOptions).then(() => {
 //     socket.broadcast.emit('typing', { username: socket.username });
 //   });
 // });
-=======
-// Paola's
-const http = require('http');
-const socketIO = require('socket.io');
-const server = http.createServer(app);
-const io = socketIO(server);
-const portIO = process.env.PORT || 3000;
-const clients = [];
-
-server.listen(portIO, () => {
-  console.log(`Server is up on port ${portIO}`);
-});
-
-io.on('connection', (socket) => {
-  console.log('New user connected!');
-});
-
-io.on('connection', (socket) => {
-  console.log('A new user just connected on ' + socket.id);
-  socket.on('disconnect', () => {
-    console.log('user disconnected on  ' + socket.id);
-  });
-
-  io.on('connection', function (client) {
-    clients.push(client);
-    console.log('client saved');
-    client.on('disconnect', function () {
-      clients.splice(clients.indexOf(client), 1);
-      console.log('client removed');
-    });
-  });
-
-  console.log('this is all clients  ' + io.sockets.clients());
-  console.log('this is the number of clients  ' + io.engine.clientsCount);
-});
->>>>>>> dd9be540a6ad7f66d2683218d62bb3c1b7bdcc0a
 
 // Paola
 
