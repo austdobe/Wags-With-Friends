@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/assets/js/chat.js"></script>
+  </head>
+  <body>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Instant messaging</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                online users here
+            </div>
+            <div class="col-md-8">
+                messages area here
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class ="row">
+            <div class= "col-lg-12">
+                <div class="input-group ">
+                    <input id="message" type="text" class="form-control" placeholder="Type message" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button id="send_message" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        
+  </body>
+</html>
