@@ -1,15 +1,17 @@
 /* eslint-disable no-undef */
-
+// $("document").ready(function(){
     $('.map').on('click', function (event) {
     event.preventDefault();
+    console.log("click");
     $('#map-view').modal('toggle');
-    L.mapquest.key ='wAmctCflz6wnnwp1Bpyu2XWtFZ1XSvPS';
-    const userZipCode = $('#userInfoForMap').data('zipcode');
+    L.mapquest.key ='G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
+    console.log(L.mapquest.key);
+    const userZipCode = $('#userInfoForMap').data('zipcode').toString();
     console.log(userZipCode);
     L.mapquest.geocoding().geocode([userZipCode], createMap);
-
     // Creating map
     function createMap (err, res) {
+        console.log(userZipCode +" function zip");
         if (err) throw err;
         const map = L.mapquest.map('map', {
         layers: L.mapquest.tileLayer('map'),
