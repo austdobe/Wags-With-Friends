@@ -108,6 +108,11 @@ module.exports = (db) => {
       res.redirect('/');
     }
   });
+  // Paola
+  router.get('/chat', function (req, res) {
+    res.render('chat');
+  });
+  // Paola
 
   router.get('/viewPage/:id', function (req, res) {
     if (req.isAuthenticated()) {

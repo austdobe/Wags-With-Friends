@@ -37,50 +37,6 @@
         </div>
     </div>
 </div>
-        {{!-- Paola --}}
-    <br>
-    <div class="container">    
-        <h3 class="theme-title-div mb-4">Instant Messaging</h3>
-        <div class="row">
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Connected matches
-                    </div>
-                    <ul class="list-group list-group-flush scrollChat">
-                        {{#each results}}
-                            <li data-id="{{this.id}}" class="list-group-item">
-                                <a href="viewPage/{{this.id}}">{{this.firstName}}</a>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-            <div class="col-8 paddingLeft d-flex">
-                <div class="card w-100">
-                    <div class="card-header">
-                        Chat Area
-                    </div>
-                    <div id= "chatArea" class= "card-body  scrollChat">
-                        Messages
-                        <div id="feedback"></div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="input-group ">
-                            <input id="message" type="text" class="form-control" placeholder="Type message" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button id="send_message" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="chat.js"></script>
-    </div>
-    <br>
-        {{!-- Paola --}}
-
 
 <div class="modal" tabindex="-1" role="dialog" id="map-view">
     <div class="modal-dialog" role="document">
