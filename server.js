@@ -60,28 +60,41 @@ db.sequelize.sync(syncOptions).then(() => {
   });
 });
 
-// // Paola
+// // Paola's
 // const http = require('http');
+// const socketIO = require('socket.io');
 // const server = http.createServer(app);
-// const io = require('socket.io').listen(server);
-// io.on('connection', (socket) => {
-//   console.log('New user connected');
+// const io = socketIO(server);
+// const portIO = process.env.PORT || 3000;
+// const clients = [];
 
-// //   // default username
-//   socket.username = 'Anonymous';
-
-//   // listen on new_message
-//   socket.on('new_message', (data) => {
-//   // broadcast the new message
-//     io.sockets.emit('new_message', { message: data.message, username: socket.username });
-//   });
-
-//   // listen on typing
-//   socket.on('typing', (data) => {
-//     socket.broadcast.emit('typing', { username: socket.username });
-//   });
+// server.listen(portIO, () => {
+//   console.log(`Server is up on port ${portIO}`);
 // });
 
-// Paola
+// io.on('connection', (socket) => {
+//   console.log('New user connected!');
+// });
+
+// io.on('connection', (socket) => {
+//   console.log('A new user just connected on ' + socket.id);
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected on  ' + socket.id);
+//   });
+
+//   io.on('connection', function (client) {
+//     clients.push(client);
+//     console.log('client saved');
+//     client.on('disconnect', function () {
+//       clients.splice(clients.indexOf(client), 1);
+//       console.log('client removed');
+//     });
+//   });
+
+//   console.log('this is all clients  ' + io.sockets.clients());
+//   console.log('this is the number of clients  ' + io.engine.clientsCount);
+// });
+
+// // Paola
 
 module.exports = app;
