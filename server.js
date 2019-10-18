@@ -66,40 +66,10 @@ const socketIO = require('socket.io');
 const server = http.createServer(app);
 const io = socketIO(server);
 const portIO = process.env.PORT || 3000;
-const clients = [];
 
-<<<<<<< HEAD
 server.listen(portIO, () => {
   console.log(`Server is up on port ${portIO}`);
 });
-=======
-  // default username
-  socket.username = 'Anonymous';
->>>>>>> b24f0eab5f2956d0f38cffd39e5b6d1ffe7b4292
-
-io.on('connection', (socket) => {
-  console.log('New user connected!');
-});
-
-io.on('connection', (socket) => {
-  console.log('A new user just connected on ' + socket.id);
-  socket.on('disconnect', () => {
-    console.log('user disconnected on  ' + socket.id);
-  });
-
-  io.on('connection', function (client) {
-    clients.push(client);
-    console.log('client saved');
-    client.on('disconnect', function () {
-      clients.splice(clients.indexOf(client), 1);
-      console.log('client removed');
-    });
-  });
-
-  console.log('this is all clients  ' + io.sockets.clients());
-  console.log('this is the number of clients  ' + io.engine.clientsCount);
-});
-
 // Paola
 
 module.exports = app;
