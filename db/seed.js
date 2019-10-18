@@ -279,4 +279,32 @@ module.exports = db => {
     city: 'Durham',
     state: 'NC'
   });
+  db.User.create({
+    firstName: 'Arya',
+    lastName: 'Stark',
+    email: 'arya@winterfell.com',
+    password: '123456',
+    isAdmin: false,
+    pet: 'Dog',
+    petAge: 3,
+    petName: 'Nymeria',
+    address: '123 Winter is Coming Way',
+    zipcode: 10001,
+    city: 'Winterfell',
+    state: 'Alaska'
+  });
+  db.User.create({
+    firstName: 'Sansa',
+    lastName: 'Stark',
+    email: 'sansa@winterfell.com',
+    password: '123456',
+    isAdmin: false,
+    pet: 'Dog',
+    petAge: 3,
+    petName: 'Lady',
+    address: '123 Queen in Da Norf Street',
+    zipcode: 10001,
+    city: 'Winterfell',
+    state: 'Alaska'
+  });
 };

@@ -24,11 +24,11 @@
                             <ul class="description__list">
                                 <li class="description__list-item"><strong>Pet Type: </strong>{{this.pet}}</li>
                                 <li class="description__list-item"><strong>Pet Age: </strong>{{this.petAge}}</li>
-                                <li class="description__list-item"><strong>Owner: </strong> <a href="example/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></li>
+                                <li class="description__list-item"><strong>Owner: </strong>{{this.firstName}} {{this.lastName}}</li>
                             </ul>
                         </div>
                         <div class="search__user--buttons">
-                            <button class="btn btn-light btn-block rounded-0 message">Message</button>
+                            <button class="btn btn-light btn-block rounded-0 message" data-recipient-id="{{this.id}}" data-toggle="modal" data-target="#message-modal">Message</button>
                             <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 mapButton" data-zipCode={{userInfo.zipcode}}>View on map</button>
                         </div>
                     </li>
@@ -58,3 +58,5 @@
         </div>
     </div>
 </div>
+
+{{> modal/message-block sender=userInfo.id sender-name=userInfo.firstName}}

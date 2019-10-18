@@ -139,8 +139,8 @@ module.exports = (db) => {
           userId: req.session.passport.user.id
         }
       }).then(function (results) {
-        console.log(results);
         if (results.length > 0) {
+          console.log(results);
           res.render('viewMessage', {
             messages: true,
             userInfo: req.session.passport.user,
