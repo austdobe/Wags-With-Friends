@@ -1,9 +1,13 @@
-{{>nav/nave-block}}
+{{>nav/nav-block}}
 
-<form>
-  <div class="form-group">
+<form class="pt-5">
+  <div class="form-group mt-5">
     <label for="messagePost">Message</label>
-    <textarea class="form-control" id="messagePost" rows="3"></textarea>
-  </div>
-  <button id="submitMsg" class="btn btn-primary float-right">Submit</button>
+    <textarea class="form-control" data-sender='{{sender.id}}' data-reciver='{{receving}}' id="messagePost" rows="3"></textarea>
+ <button id="submit" class="btn btn-primary float-right" >Submit</button>
+   </div>
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/assets/js/message.js"></script>
+
+{{> modal/login-block}}
