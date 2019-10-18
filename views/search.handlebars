@@ -7,103 +7,54 @@
                 <h3 class="theme-title-div mb-4">Nearby Buddies</h3>
 
                 <ul id="example-list" class="list-group search">
-            {{#each results}}
-                <li data-id="{{this.id}}" class="list-group-item search__user">
-                    <div class="search__user--header">
-                        <div class="search__user--header-icon">
-                            {{#ifEquals this.pet "dog"}}
-                                <span class="fas fa-dog search__user--header-icon-span"></span>
-                            {{else}}
-                                <span class="fas fa-cat search__user--header-icon-span"></span>
-                            {{/ifEquals}}
+                {{#each results}}
+                    <li data-id="{{this.id}}" class="list-group-item search__user">
+                        <div class="search__user--header">
+                            <div class="search__user--header-icon">
+                                {{#ifEquals this.pet "dog"}}
+                                    <span class="fas fa-dog search__user--header-icon-span"></span>
+                                {{else}}
+                                    <span class="fas fa-cat search__user--header-icon-span"></span>
+                                {{/ifEquals}}
+                            </div>
+                        
+                            <h4 class="search__user--header-title">{{this.petName}}</h4>
                         </div>
-                       
-                        <h4 class="search__user--header-title">{{this.petName}}</h4>
-                    </div>
-                    <div class="search__user--content">
-                        <ul class="description__list">
-                            <li class="description__list-item"><strong>Pet Type: </strong>{{this.pet}}</li>
-                            <li class="description__list-item"><strong>Pet Age: </strong>{{this.petAge}}</li>
-                            <li class="description__list-item"><strong>Owner: </strong> <a href="viewPage/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></li>
-                        </ul>
-                    </div>
-                    <div class="search__user--buttons">
-                        <a class="btn btn-light btn-block rounded-0 message" href='message/{{this.id}}'>Message</a>
-                        <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 mapButton" data-zipCode={{userInfo.zipcode}}>View on map</button>
-                    </div>
-                </li>
-            {{/each}}
+                        <div class="search__user--content">
+                            <ul class="description__list">
+                                <li class="description__list-item"><strong>Pet Type: </strong>{{this.pet}}</li>
+                                <li class="description__list-item"><strong>Pet Age: </strong>{{this.petAge}}</li>
+                                <li class="description__list-item"><strong>Owner: </strong> <a href="example/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></li>
+                            </ul>
+                        </div>
+                        <div class="search__user--buttons">
+                            <button class="btn btn-light btn-block rounded-0 message">Message</button>
+                            <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 mapButton" data-zipCode={{userInfo.zipcode}}>View on map</button>
+                        </div>
+                    </li>
+                {{/each}}
             </ul>
             <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
         </div>
     </div>
 </div>
-        {{!-- Paola --}}
-    <br>
-    <div class="container">    
-        <h3 class="theme-title-div mb-4">Instant Messaging</h3>
-        <div class="row">
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Connected matches
-                    </div>
-                    <ul class="list-group list-group-flush scrollChat">
 
-                {{#if matches}}
-                    <ul id="example-list" class="list-group search">
 
-                        {{#each results}}
-                            <li data-id="{{this.id}}" class="list-group-item search__user">
-                                <div class="search__user--header">
-                                    <div class="search__user--header-icon">
-                                        {{#ifEquals this.pet "dog"}}
-                                            <span class="fas fa-dog search__user--header-icon-span"></span>
-                                        {{else}}
-                                            <span class="fas fa-cat search__user--header-icon-span"></span>
-                                        {{/ifEquals}}
-                                    </div>
-                                
-                                    <h4 class="search__user--header-title">{{this.petName}}</h4>
-                                </div>
-                                <div class="search__user--content">
-                                    <ul class="description__list">
-                                        <li class="description__list-item"><strong>Pet Type: </strong>{{this.pet}}</li>
-                                        <li class="description__list-item"><strong>Pet Age: </strong>{{this.petAge}}</li>
-                                        <li class="description__list-item"><strong>Owner: </strong> <a href="example/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></li>
-                                    </ul>
-                                </div>
-                                <div class="search__user--buttons">
-                                    <button class="btn btn-light btn-block rounded-0 message">Message</button>
-                                    <button type="button" data-id="{{this.id}}" class="btn btn-light btn-block rounded-0 map" data-toggle="modal" data-target="#map-view" data-zipCode={{userInfo.zipcode}}>View on map</button>
-                                </div>
-                            </li>
-                        {{/each}}
-                    </ul>
-                {{else}}
-                    <h4 class="no-results">No Matches Found T_T</h4>
-                {{/if}}
-               
-            <div id="userInfoForMap" data-address="{{userInfo.address}}" data-zipcode="{{userInfo.zipcode}}" data-city="{{userInfo.city}}" data-state="{{userInfo.state}}"></div>
+<div class="modal" tabindex="-1" role="dialog" id="map-view">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">View Map</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                 </button>
+            </div>
+            <div class="modal-body">
+                 <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
-
-        <div class="modal" tabindex="-1" role="dialog" id="map-view">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">View Map</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
