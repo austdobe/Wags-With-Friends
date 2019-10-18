@@ -1,25 +1,13 @@
 [![Build Status](https://travis-ci.com/austdobe/project2.svg?branch=master)](https://travis-ci.com/austdobe/project2)
 
-# Project 2 Starter with Auth
+# Wags with Friends
+'Wags with Friends' is an app that helps users find friends for their pets.
 
-A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
+### Deployed Site: https://project2-10-2019.herokuapp.com/
 
-## Live link:
-https://project2-10-2019.herokuapp.com/
-
-## Requirements:
-
-* Add `.env` file with the following content:
-
-```
-SEQUELIZE_USER=your_mysql_db_user
-SEQUELIZE_PASSWORD=your_mysql_db_password
-SEQUELIZE_HOST=your_mysql_db_host
-AUTH_SECRET=your_auth_secret_key
-ADMIN_USER_PWD=admin_password
-USER_PWD=user_pwd
-FORCE_SYNC=true_or_false
-```
-Cordinators:
-
-Ethan Donahue (EthanD0922)
+### Contributors
+Austin Dober | https://github.com/austdobe
+Amelia Carlie | https://github.com/acarlie
+Ethan Donahue | https://github.com/EthanD0922
+Paola Stone | https://github.com/PaolaStone
+Hakim Guidoum | https://github.com/hguidoum
