@@ -210,23 +210,9 @@ module.exports = db => {
     state: 'NC'
   });
   db.User.create({
-    firstName: 'Jane',
-    lastName: 'Sims',
-    email: 'jsims@gmail.com',
-    password: 'green99',
-    isAdmin: false,
-    pet: 'cat',
-    petAge: 5,
-    petName: 'Coco',
-    address: '3 Morristown Cir',
-    zipcode: 27705,
-    city: 'Durham',
-    state: 'NC'
-  });
-  db.User.create({
     firstName: 'Pitt',
     lastName: 'Jobs',
-    email: 'pjobs@gmail.com',
+    email: 'pjobs3@gmail.com',
     password: 'green99',
     isAdmin: false,
     pet: 'cat',
@@ -240,7 +226,7 @@ module.exports = db => {
   db.User.create({
     firstName: 'Jane',
     lastName: 'Albert',
-    email: 'jalbert@gmail.com',
+    email: 'jalbert1@gmail.com',
     password: 'green99',
     isAdmin: false,
     pet: 'cat',

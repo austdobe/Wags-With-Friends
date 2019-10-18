@@ -60,41 +60,41 @@ db.sequelize.sync(syncOptions).then(() => {
   });
 });
 
-// Paola's
-const http = require('http');
-const socketIO = require('socket.io');
-const server = http.createServer(app);
-const io = socketIO(server);
-const portIO = process.env.PORT || 3000;
-const clients = [];
+// // Paola's
+// const http = require('http');
+// const socketIO = require('socket.io');
+// const server = http.createServer(app);
+// const io = socketIO(server);
+// const portIO = process.env.PORT || 3000;
+// const clients = [];
 
-server.listen(portIO, () => {
-  console.log(`Server is up on port ${portIO}`);
-});
+// server.listen(portIO, () => {
+//   console.log(`Server is up on port ${portIO}`);
+// });
 
-io.on('connection', (socket) => {
-  console.log('New user connected!');
-});
+// io.on('connection', (socket) => {
+//   console.log('New user connected!');
+// });
 
-io.on('connection', (socket) => {
-  console.log('A new user just connected on ' + socket.id);
-  socket.on('disconnect', () => {
-    console.log('user disconnected on  ' + socket.id);
-  });
+// io.on('connection', (socket) => {
+//   console.log('A new user just connected on ' + socket.id);
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected on  ' + socket.id);
+//   });
 
-  io.on('connection', function (client) {
-    clients.push(client);
-    console.log('client saved');
-    client.on('disconnect', function () {
-      clients.splice(clients.indexOf(client), 1);
-      console.log('client removed');
-    });
-  });
+//   io.on('connection', function (client) {
+//     clients.push(client);
+//     console.log('client saved');
+//     client.on('disconnect', function () {
+//       clients.splice(clients.indexOf(client), 1);
+//       console.log('client removed');
+//     });
+//   });
 
-  console.log('this is all clients  ' + io.sockets.clients());
-  console.log('this is the number of clients  ' + io.engine.clientsCount);
-});
+//   console.log('this is all clients  ' + io.sockets.clients());
+//   console.log('this is the number of clients  ' + io.engine.clientsCount);
+// });
 
-// Paola
+// // Paola
 
 module.exports = app;
