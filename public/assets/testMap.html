@@ -16,7 +16,10 @@
 
 <script type="text/javascript">
 $("document").ready(function(){ 
-// $('.mapButton').on('click', function () {
+    $('.mapButton').on('click', function (event) {
+    event.preventDefault();
+    console.log("click");
+    $('#map-view').modal('toggle');
 L.mapquest.key ='G6APIiFZIl5icGBUOlrCc75BkKFBfWRX';
 var address = {
     street: '1300 maroubra loop',
@@ -52,12 +55,12 @@ function generateMarkers(res) {
     return L.featureGroup(group);
 }
 })
-
+})
 </script>
 
 </head>
 <body style="border: 0; margin: 0;">
-        <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+        <!-- <div id="map" style="width: 90%; height: 400px; margin: 10px auto;"></div> -->
         
         <button type="button" class="btn float-right mapButton">View on map</button>
 
