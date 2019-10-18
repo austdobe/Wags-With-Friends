@@ -1,8 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
-  const Messages = sequelize.define('Message', {
+  const Message = sequelize.define('Message', {
     message: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     senderId: DataTypes.INTEGER
   });
-  return Messages;
+  return Message;
 };

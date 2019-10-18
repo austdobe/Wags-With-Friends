@@ -160,6 +160,20 @@ module.exports = (db) => {
     }
   });
 
+  router.get('/message/:id', function (req, res) {
+    // eslint-disable-next-line no-var
+    var userId;
+    if (req.isAuthenticated()) {
+      userId = req.session.passport.user;
+      res.render('message', {
+        sender: userId,
+        receving: req.params.id
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
   // ---------------------------------------
 
   // Load example page and pass in an example by id
