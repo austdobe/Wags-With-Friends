@@ -20,7 +20,7 @@
             margin-top: -1px;
             flex-direction: row;
             @include dark-gradient;
-            color: #ccc;
+            color: #ddd;
 
             &-icon {
                 display: flex;
@@ -37,7 +37,7 @@
             &-title {
                 padding: .5em;
                 width: 100%;
-                color: #ccc;
+                color: #ddd;
                 padding-top: .75em;
                 text-transform: capitalize;
             }
