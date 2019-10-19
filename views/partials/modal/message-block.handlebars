@@ -1,0 +1,25 @@
+<div class="modal" tabindex="-1" role="dialog" id="message-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Send a Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" id="message-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message-text">Message</label>
+                        <textarea name="message-text" id="message-text" class="form-control" rows="10"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" id="message-submit" data-sender-id="{{sender}}" data-sender-name="{{sender-name}}">Send</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
