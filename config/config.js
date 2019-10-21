@@ -11,7 +11,7 @@ module.exports = {
   },
   test: {
     username: process.env.TU,
-    password: process.env.TP || null,
+    password: process.env.TP || 'wp8177',
     database: 'project2_test',
     details: {
       host: 'localhost',
