@@ -1,4 +1,3 @@
-// DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
   event.preventDefault();
   $('#err-msg').empty('');
@@ -106,10 +105,6 @@ $(document).ready(function () {
     $('#user-form-cont').addClass('hidden');
     $('#user-profile').show();
   });
-
-  // jQuery.validator.addMethod('abc', function (value, element) {
-  //   return this.optional(element) || /^[a-z][a-z\s]*$/gi.test(value);
-  // }, 'Please only use letters and spaces');
 
   const registrationForm = $('#create-form');
   const updateForm = $('#user-form');
@@ -220,5 +215,4 @@ $(document).ready(function () {
       $('#update-err-msg').empty('').text('**Please fill out entire form**');
     }
   });
-
 });

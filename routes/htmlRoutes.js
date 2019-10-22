@@ -60,25 +60,6 @@ module.exports = (db) => {
     }
   });
 
-  // Load example index page
-  router.get('/example', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Example.findAll({ where:
-        { zipcode: {
-          user: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
-        }
-        } }).then(function (dbExamples) {
-        res.render('example', {
-          msg: 'Welcome!',
-          examples: dbExamples
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
   // ---------------------------------
 
   router.get('/search', function (req, res) {
@@ -118,13 +99,14 @@ module.exports = (db) => {
       res.redirect('/');
     }
   });
-  router.get('/viewPage/:id', function (req, res) {
+  router.get('/profile/:id', function (req, res) {
     if (req.isAuthenticated()) {
       db.User.findOne({ where: {
         id: req.params.id
       } }).then(function (results) {
         res.render('viewPage', {
-          userInfo: results
+          userInfo: results,
+          isloggedin: req.isAuthenticated()
         });
       });
     } else {
@@ -175,19 +157,6 @@ module.exports = (db) => {
   });
 
   // ---------------------------------------
-
-  // Load example page and pass in an example by id
-  router.get('/example/:id', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-        res.render('example-detail', {
-          example: dbExample
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
 
   // Logout
   router.get('/logout', (req, res, next) => {

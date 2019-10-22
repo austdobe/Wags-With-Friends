@@ -14,15 +14,12 @@ module.exports = (passport, db) => {
   router.post('/user/confirm', AuthController.confirmAuth);
 
   // App
-  router.get('/examples', AppController.getExamples);
   // *TODO:
   // Paola
   router.get('/search', AppController.getZipCode);
   // MESSAGES:
   router.post('/messages', AppController.createMessage);
   router.delete('/messages/:id', AppController.deleteMessage);
-  router.post('/examples', AppController.createExample);
-  router.delete('/examples/:id', AppController.deleteExample);
 
   return router;
 };

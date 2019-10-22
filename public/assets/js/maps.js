@@ -17,7 +17,7 @@ $('.mapButton').on('click', function (event) {
 // Creating map
 function createMap (err, res) {
   console.log(typeof userZipCode + ' function zip');
-  // if (err) throw err;
+  console.log(err);
   const map = L.mapquest.map('map', {
     layers: L.mapquest.tileLayer('map'),
     center: [0, 0],
